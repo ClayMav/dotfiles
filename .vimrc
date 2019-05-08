@@ -4,7 +4,8 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-call plug#begin('~/dotfiles/vim/plugins')
+call plug#begin('~/.vim/bundle')
+
 
 " Color Scheme
 Plug 'sonph/onehalf', { 'rtp': 'vim/' }
