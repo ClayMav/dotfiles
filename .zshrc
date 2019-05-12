@@ -2,7 +2,11 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/maverick/.oh-my-zsh"
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+  export ZSH="/home/maverick/.oh-my-zsh"
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+  export ZSH="/Users/maverick/.oh-my-zsh"
+fi
 
 ZSH_THEME="robbyrussell"
 
