@@ -35,8 +35,11 @@ fi
 
 alias ls="exa --sort=type"
 alias vim="nvim"
+alias git="/usr/local/bin/git"
 
 function cd {
   builtin cd $argv
   ls
 }
+
+source ~/.config/tmuxinator.zsh

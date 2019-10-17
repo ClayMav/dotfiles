@@ -6,33 +6,26 @@ endif
 
 call plug#begin('~/.vim/bundle')
 
-
 " Color Scheme
 Plug 'sonph/onehalf', { 'rtp': 'vim/' }
 
-" Press % to go to matching tag
-" Plug 'adelarsq/vim-matchit'
+" Fancy status bar
+Plug 'itchyny/lightline.vim'
 
-" Shows how outdented you are
-Plug 'Yggdroot/indentLine'
+" Comment with gcc or gc
+Plug 'tpope/vim-commentary'
+
+" Gimme pairs
+Plug 'jiangmiao/auto-pairs'
 
 " Fuzzy File Finder
 " Plug 'kien/ctrlp.vim'
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 
-" Fancy bar at bottom of vim
-Plug 'vim-airline/vim-airline'
-" Plug 'vim-airline/vim-airline-themes'
-
-" Auto closing of parens and quotes and such
-Plug 'tpope/vim-surround'
-"
 " Linting
-Plug 'w0rp/ale'
-
-" Git Gutter, changes shown
-Plug 'airblade/vim-gitgutter'
+" Plug 'w0rp/ale'
+Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
 
 " Python
 Plug 'vim-scripts/indentpython.vim', { 'for': 'python' }
@@ -40,14 +33,7 @@ Plug 'vim-python/python-syntax', { 'for': 'python' }
 
 " Typescript
 Plug 'leafgarland/typescript-vim'
-
-" Vue
-Plug 'posva/vim-vue'
-
-" Markdown
-Plug 'JamshedVesuna/vim-markdown-preview', { 'for': 'markdown' }
-
-Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
+Plug 'ianks/vim-tsx'
 
 call plug#end()
 
@@ -65,8 +51,9 @@ hi Normal     ctermbg=NONE guibg=NONE
 hi LineNr     ctermbg=NONE guibg=NONE
 hi SignColumn ctermbg=NONE guibg=NONE
 
-" let g:airline_theme='violet'
-let g:airline_theme='onehalfdark'
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ }
 
 " Enable true colors
 if has('nvim') || has('termguicolors')
@@ -87,7 +74,7 @@ let g:ale_linters = {
 \   'javascript': ['eslint'],
 \   'python': ['pylint'],
 \   'latex': ['alex', 'redpen', 'vale'],
-\   'typescript': ['tslint']
+\   'typescript': ['tslint', 'tsserver']
 \}
 let g:ale_fixers = {
 \   'python': ['yapf', 'isort'],

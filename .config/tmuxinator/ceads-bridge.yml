@@ -1,0 +1,15 @@
+# /Users/maverick/.config/tmuxinator/ceads-bridge.yml
+
+name: ceads-bridge
+root: ~/git-local/CEADS/ceads
+
+startup_window: editor
+
+windows:
+  - servers: 
+      layout: main-vertical
+      panes:
+          - open --background -a Docker && while ! docker system info > /dev/null 2>&1; do sleep 1; done && cd mothership && docker-compose up
+          - cd bridge && yarn start
+  - editor:
+      root: ~/git-local/CEADS/ceads/bridge
