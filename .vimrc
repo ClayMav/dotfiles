@@ -16,7 +16,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'tpope/vim-commentary'
 
 " Gimme pairs
-Plug 'jiangmiao/auto-pairs'
+Plug 'tmsvg/pear-tree'
 
 " Fuzzy File Finder
 " Plug 'kien/ctrlp.vim'
@@ -34,6 +34,8 @@ Plug 'vim-python/python-syntax', { 'for': 'python' }
 " Typescript
 Plug 'leafgarland/typescript-vim'
 Plug 'ianks/vim-tsx'
+
+Plug 'Yggdroot/indentLine'
 
 call plug#end()
 
@@ -68,6 +70,7 @@ let g:livepreview_previewer = 'open -a Skim'
 
 " IndentLine
 let g:indentLine_char = '│'
+" let g:indentLine_setConceal = 0
 
 " Ale
 let g:ale_linters = {
@@ -101,7 +104,11 @@ let g:airline#extensions#ale#enabled = 1
 set laststatus=2
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 
-let g:indentLine_setConceal = 0
+
+" Smart pairs
+let g:pear_tree_smart_openers = 1
+let g:pear_tree_smart_closers = 1
+let g:pear_tree_smart_backspace = 1
 
 " Overwrites (keys I don't want to hit)
 " -----------------------
@@ -155,9 +162,6 @@ set relativenumber
 set colorcolumn=80
 
 " TODO find out what this does
-set nobackup
-
-" TODO find out what this does
 set hidden
 
 " shows cursor position in bottom right
@@ -168,6 +172,14 @@ set incsearch
 set hlsearch
 set ignorecase
 set smartcase
+
+" Backup, undo, and swap files
+" run  mkdir ~/.vim/.backup ~/.vim/.swp ~/.vim/.undo first
+set undodir=~/.vim/.undo//
+set backupdir=~/.vim/.backup//
+set directory=~/.vim/.swp//
+set backup
+set undofile
 
 " Command completion
 " set wildmenu

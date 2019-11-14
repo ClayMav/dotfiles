@@ -47,3 +47,4 @@ function cd {
 }
 
 source ~/.config/tmuxinator.zsh
+eval "$(pyenv init -)"
