@@ -36,6 +36,7 @@ Plug 'leafgarland/typescript-vim'
 Plug 'ianks/vim-tsx'
 
 Plug 'Yggdroot/indentLine'
+Plug 'elzr/vim-json'
 
 call plug#end()
 
@@ -70,7 +71,7 @@ let g:livepreview_previewer = 'open -a Skim'
 
 " IndentLine
 let g:indentLine_char = '│'
-" let g:indentLine_setConceal = 0
+let g:vim_json_syntax_conceal = 0
 
 " Ale
 let g:ale_linters = {
