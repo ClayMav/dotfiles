@@ -18,6 +18,7 @@ brew 'git'
 brew 'neovim'
 brew 'nvm'
 brew 'pgcli'
+brew 'pipenv'
 brew 'prettier'
 brew 'pyenv'
 brew 'python3'
@@ -61,4 +62,4 @@ cask 'teamviewer'
 cask 'visual-studio-code'
 cask 'balenaetcher'
 cask 'font-hack-nerd-font'
-# Need to install nirvana, yabai
+# Need to install nirvana, yabai, bitbar yabai extension
