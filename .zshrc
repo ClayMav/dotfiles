@@ -22,7 +22,7 @@ export UPDATE_ZSH_DAYS=13
 
 
 
-plugins=(git docker brew yarn tmux pip)
+plugins=(poetry git docker brew yarn tmux pip)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -59,3 +59,5 @@ if [ -f '/Users/maverick/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then 
 export NVM_DIR="$HOME/.nvm"
   [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
   [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
+export PYTHONPATH=$PYTHONPATH:/usr/local/lib
