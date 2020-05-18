@@ -3,9 +3,9 @@
 cask_args appdir: '/Applications'
 
 # add taps
-homebrew/cask
-homebrew/cask-fonts
-homebrew/services
+tap 'homebrew/cask'
+tap 'homebrew/cask-fonts'
+tap 'homebrew/services'
 
 # Install packages
 brew 'bash'
@@ -23,7 +23,6 @@ brew 'prettier'
 brew 'pyenv'
 brew 'python3'
 brew 'ripgrep'
-brew 'skhd'
 brew 'tmuxinator'
 brew 'yadm'
 brew 'yarn'
@@ -41,7 +40,8 @@ cask 'google-chrome'
 cask 'spotify'
 cask 'iterm2'
 cask 'google-backup-and-sync'
-cask 'firefox-beta'
+cask 'firefox'
+cask 'brave-browser'
 cask 'discord'
 cask 'docker'
 cask 'mactex'
