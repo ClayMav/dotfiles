@@ -75,25 +75,6 @@ let g:livepreview_previewer = 'open -a Skim'
 let g:indentLine_char = '│'
 let g:vim_json_syntax_conceal = 0
 
-" Ale
-let g:ale_linters = {
-\   'javascript': ['eslint'],
-\   'python': ['pylint'],
-\   'latex': ['alex', 'redpen', 'vale'],
-\   'typescript': ['tslint', 'tsserver']
-\}
-let g:ale_fixers = {
-\   'python': ['yapf', 'isort'],
-\   'cpp': ['clang-format'],
-\   'css': ['prettier'],
-\   'html': ['tidy'],
-\   'javascript': ['eslint', 'prettier'],
-\   'go': ['gofmt'],
-\   'typescript': ['tslint', 'prettier']
-\}
-let g:ale_fix_on_save = 1
-let g:ale_completion_enabled = 1
-
 " Markdown
 let vim_markdown_preview_github=1
 let vim_markdown_preview_hotkey='<C-m>'
@@ -202,5 +183,3 @@ augroup line_return
 
 " Python specific
 autocmd Filetype python setlocal expandtab shiftwidth=4 softtabstop=4
-
-" Add language specific filed
