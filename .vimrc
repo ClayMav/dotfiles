@@ -6,44 +6,39 @@ endif
 
 call plug#begin('~/.vim/bundle')
 
+" ====== Aesthetics ======
 " Color Scheme
 Plug 'sonph/onehalf', { 'rtp': 'vim/' }
-
 " Fancy status bar
 Plug 'itchyny/lightline.vim'
 
+" ====== Utility ======
 " Comment with gcc or gc
 Plug 'tpope/vim-commentary'
-
-" Gimme pairs
+" Pairs of parens etc.
 Plug 'tmsvg/pear-tree'
-
 " Fuzzy File Finder
-" Plug 'kien/ctrlp.vim'
-Plug '/usr/local/opt/fzf'
-Plug 'junegunn/fzf.vim'
-
-" Linting
-" Plug 'w0rp/ale'
+Plug 'kien/ctrlp.vim'
+" Linting and language server integrations
 Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
+" Adds character to denote level of indent
+Plug 'Yggdroot/indentLine'
 
+" ====== Language Specific ======
 " Python
 Plug 'vim-scripts/indentpython.vim', { 'for': 'python' }
 Plug 'vim-python/python-syntax', { 'for': 'python' }
-
 " Typescript
 Plug 'leafgarland/typescript-vim'
 Plug 'ianks/vim-tsx'
-
-Plug 'Yggdroot/indentLine'
+" JSON
 Plug 'elzr/vim-json'
 
 call plug#end()
 
-" Beautify Everything
-" -----------------------
+" ====== Vim Styling ======
+" -------------------------
 
-" colorscheme space-vim-dark
 colorscheme onehalfdark
 
 " Allow Italics
@@ -65,63 +60,57 @@ if has('nvim') || has('termguicolors')
   set termguicolors
 endif
 
-" Plugins and their Settings
-" ------------------------
+" ====== Plugin Config ======
+" ---------------------------
 
-
-let g:livepreview_previewer = 'open -a Skim'
+" coc.nvim extensions
+let g:coc_global_extensions = [
+      \'coc-tsserver',
+      \'coc-eslint',
+      \'coc-prettier',
+      \'coc-python',
+      \]
 
 " IndentLine
 let g:indentLine_char = '│'
 let g:vim_json_syntax_conceal = 0
 
-" Markdown
-let vim_markdown_preview_github=1
-let vim_markdown_preview_hotkey='<C-m>'
-
 " python-syntax
 let g:python_highlight_all = 1
-
-" Airline
-let g:airline#extensions#ale#enabled = 1
-" Allows airline to run constantly
-set laststatus=2
-let g:airline#extensions#tabline#formatter = 'unique_tail'
-
 
 " Smart pairs
 let g:pear_tree_smart_openers = 1
 let g:pear_tree_smart_closers = 1
 let g:pear_tree_smart_backspace = 1
 
-" Overwrites (keys I don't want to hit)
-" -----------------------
+" ====== Overwrites ======
+" keys I don't want to hit
+" ------------------------
 let mapleader = ','
 
 map Q <nop>
 map <F1> <Esc>
 imap <F1> <Esc>
-
-"FZF
-" nmap ; :Buffers<CR>
 map <C-P> :Files<CR>
-" map <Leader>t :Files<CR>
-" nmap <Leader>r :Tags<CR>
 
+" ====== Vim Settings ======
+" --------------------------
 " Set utf8
 set encoding=utf-8
 
-" Set mouse
+" Enable mouse interactions
 set mouse=a
 
 " Fix stuff in macos
 if !has('nvim')
+  " MacOS uses the wrong backspace character
   set backspace=2
 else
+  " without this, it just wonks
   set nofsync
 endif
 
-" EOL chars
+" EOL chars for looks
 set list
 set listchars=tab:▸\ ,eol:¬
 
@@ -134,11 +123,10 @@ endif
 " General tab adjustments
 set tabstop=8
 set expandtab
-
 set softtabstop=2
 set shiftwidth=2
 
-" hybrid line numbers
+" hybrid line numbers show current and offsets from current
 set number
 set relativenumber
 
@@ -165,12 +153,8 @@ set directory=~/.vim/.swp//
 set backup
 set undofile
 
-" Command completion
-" set wildmenu
-" set wildmode=longest:full,full
-
-" Scripts
-" -------------------
+" ====== Scripts ======
+" ---------------------
 
 " Return to the same line when you reopen a file.
 augroup line_return
@@ -181,5 +165,8 @@ augroup line_return
                 \ endif
         augroup END
 
+
+" ====== Language Settings ======
+" -------------------------------
 " Python specific
 autocmd Filetype python setlocal expandtab shiftwidth=4 softtabstop=4
