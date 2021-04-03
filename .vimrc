@@ -10,7 +10,7 @@ call plug#begin('~/.vim/bundle')
 " Color Scheme
 Plug 'sonph/onehalf', { 'rtp': 'vim/' }
 " Fancy status bar
-Plug 'itchyny/lightline.vim'
+" Plug 'itchyny/lightline.vim'
 
 " ====== Utility ======
 " Comment with gcc or gc
@@ -18,7 +18,7 @@ Plug 'tpope/vim-commentary'
 " Pairs of parens etc.
 Plug 'tmsvg/pear-tree'
 " Fuzzy File Finder
-Plug 'kien/ctrlp.vim'
+" Plug 'kien/ctrlp.vim'
 " Linting and language server integrations
 Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
 " Adds character to denote level of indent
@@ -28,9 +28,13 @@ Plug 'Yggdroot/indentLine'
 " Python
 Plug 'vim-scripts/indentpython.vim', { 'for': 'python' }
 Plug 'vim-python/python-syntax', { 'for': 'python' }
-" Typescript
+" JavaScript
+Plug 'pangloss/vim-javascript'
+Plug 'maxmellon/vim-jsx-pretty'
+Plug 'jparise/vim-graphql'
+" TypeScript
 Plug 'leafgarland/typescript-vim'
-Plug 'ianks/vim-tsx'
+Plug 'peitalin/vim-jsx-typescript'
 " JSON
 Plug 'elzr/vim-json'
 
@@ -69,6 +73,7 @@ let g:coc_global_extensions = [
       \'coc-eslint',
       \'coc-prettier',
       \'coc-python',
+      \'coc-json'
       \]
 
 " IndentLine
@@ -118,6 +123,7 @@ set listchars=tab:▸\ ,eol:¬
 " Turn on syntax highlighting
 if !exists("g:syntax_on")
   syntax enable
+  set re=0
 endif
 
 " General tab adjustments
@@ -170,3 +176,4 @@ augroup line_return
 " -------------------------------
 " Python specific
 autocmd Filetype python setlocal expandtab shiftwidth=4 softtabstop=4
+autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescriptreact

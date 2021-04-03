@@ -2,10 +2,12 @@
 [user]
 # Please adapt and uncomment the following lines:
 	name = Clay McGinnis
-	email = mcginnis@claymav.com
+	email = 16675291+ClayMav@users.noreply.github.com
 [core]
 	excludesfile = ~/.gitignore
 	autocrlf = input
 [pager]
         diff = diff-so-fancy | less --tabs=1,5 -RFX
         show = diff-so-fancy | less --tabs=1,5 -RFX
+[pull]
+	rebase = true
