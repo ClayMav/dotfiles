@@ -9,16 +9,12 @@ call plug#begin('~/.vim/bundle')
 " ====== Aesthetics ======
 " Color Scheme
 Plug 'sonph/onehalf', { 'rtp': 'vim/' }
-" Fancy status bar
-" Plug 'itchyny/lightline.vim'
 
 " ====== Utility ======
 " Comment with gcc or gc
 Plug 'tpope/vim-commentary'
 " Pairs of parens etc.
 Plug 'tmsvg/pear-tree'
-" Fuzzy File Finder
-" Plug 'kien/ctrlp.vim'
 " Linting and language server integrations
 Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
 " Adds character to denote level of indent
@@ -37,6 +33,8 @@ Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
 " JSON
 Plug 'elzr/vim-json'
+" Golang
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 call plug#end()
 
@@ -73,7 +71,8 @@ let g:coc_global_extensions = [
       \'coc-eslint',
       \'coc-prettier',
       \'coc-python',
-      \'coc-json'
+      \'coc-json',
+      \'coc-go'
       \]
 
 " IndentLine
@@ -116,8 +115,8 @@ else
 endif
 
 " EOL chars for looks
-set list
-set listchars=tab:▸\ ,eol:¬
+" set list
+" set listchars=tab:▸\ ,eol:¬
 
 
 " Turn on syntax highlighting
@@ -176,4 +175,34 @@ augroup line_return
 " -------------------------------
 " Python specific
 autocmd Filetype python setlocal expandtab shiftwidth=4 softtabstop=4
+
+" Typescript/Javascript React specific
 autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescriptreact
+
+" Golang specific
+au BufRead,BufNewFile *.go set filetype=go
+autocmd Filetype go setlocal noexpandtab shiftwidth=8 softtabstop=8
+
+" Go syntax highlighting
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_function_calls = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_operators = 1
+
+" Auto formatting and importing
+let g:go_fmt_autosave = 1
+let g:go_fmt_command = "goimports"
+
+" Status line types/signatures
+let g:go_auto_type_info = 1
+
+" Run :GoBuild or :GoTestCompile based on the go file
+function! s:build_go_files()
+  let l:file = expand('%')
+  if l:file =~# '^\f\+_test\.go$'
+    call go#test#Test(0, 1)
+  elseif l:file =~# '^\f\+\.go$'
+    call go#cmd#Build(0)
+  endif
+endfunction

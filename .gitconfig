@@ -2,12 +2,12 @@
 [user]
 # Please adapt and uncomment the following lines:
 	name = Clay McGinnis
-	email = 16675291+ClayMav@users.noreply.github.com
+	email = github@clay.sh
 [core]
 	excludesfile = ~/.gitignore
 	autocrlf = input
-[pager]
-        diff = diff-so-fancy | less --tabs=1,5 -RFX
-        show = diff-so-fancy | less --tabs=1,5 -RFX
 [pull]
 	rebase = true
+
+[url "ssh://git@github.com/"]
+        insteadOf = https://github.com/

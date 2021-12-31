@@ -34,9 +34,9 @@ fi
 if command_exists exa ; then
   alias ls="exa --sort=type"
 fi
-if command_exists nvim ; then
-  alias vim="nvim"
-fi
+# if command_exists nvim ; then
+#   alias vim="nvim"
+# fi
 
 function cd {
     builtin cd $argv
