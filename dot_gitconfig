@@ -1,0 +1,13 @@
+# This is Git's per-user configuration file.
+[user]
+# Please adapt and uncomment the following lines:
+	name = Clay McGinnis
+	email = github@clay.sh
+[core]
+	excludesfile = ~/.gitignore
+	autocrlf = input
+[pull]
+	rebase = true
+
+[url "ssh://git@github.com/"]
+        insteadOf = https://github.com/
