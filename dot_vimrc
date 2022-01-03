@@ -77,7 +77,12 @@ let g:coc_global_extensions = [
 
 " IndentLine
 let g:indentLine_char = '│'
+let g:indentLine_setConceal = 2
+let g:indentLine_concealcursor = ""
+
 let g:vim_json_syntax_conceal = 0
+let g:vim_markdown_conceal = 0
+let g:vim_markdown_conceal_code_blocks = 0
 
 " python-syntax
 let g:python_highlight_all = 1
@@ -151,10 +156,9 @@ set ignorecase
 set smartcase
 
 " Backup, undo, and swap files
-" run  mkdir ~/.vim/.backup ~/.vim/.swp ~/.vim/.undo first
-set undodir=~/.vim/.undo//
-set backupdir=~/.vim/.backup//
-set directory=~/.vim/.swp//
+set undodir=~/.vim/tmp/undo//
+set backupdir=~/.vim/tmp/backup//
+set directory=~/.vim/tmp/swp//
 set backup
 set undofile
 

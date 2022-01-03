@@ -1,0 +1,45 @@
+#!/bin/sh
+
+# Install used programs
+PACKAGES="exa neovim tmux zsh"
+{{ if eq .chezmoi.os "linux" -}}
+DNF_CMD=$(which yum)
+APT_GET_CMD=$(which apt-get)
+if [[ ! -z $DNF_CMD ]]; then
+    # Fedora
+    DNF_PACKAGES=$PACKAGES
+    sudo dnf install $DNF_PACKAGES
+elif [[ ! -z $APT_GET_CMD ]]; then
+    # Ubuntu / Debian
+    APT_GET_PACKAGES=$PACKAGES
+    sudo apt-get install $APT_GET_PACKAGES
+else
+    echo "This platform is currently not supported for package installs.\n Manually install the following pages:\n"
+    for PACKAGE in PACKAGES; do
+        echo $PACKAGE
+    done
+    exit 1;
+fi
+{{ else if eq .chezmoi.os "darwin" -}}
+# MacOS
+# Install brew
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+BREW_PACKAGES=$PACKAGES
+brew install $BREW_PACKAGES
+{{ end -}}
+
+# Install nvm
+NVM_URL="https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh"
+curl -o- $NVM_URL | bash
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+
+# Install node
+nvm install --lts
+
+# Set up zsh
+sudo sh -c "echo $(which zsh) >> /etc/shells"
+chsh -s $(which zsh)
+
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --keep-zshrc --unattended || true
