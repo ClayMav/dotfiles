@@ -5,7 +5,7 @@ export JAVA_TOOLS_OPTIONS="-Dlog4j2.formatMsgNoLookups=true"
 # PATH changes
 export PATH=$HOME/.toolbox/bin:$PATH
 export PATH=~/.rodar/bin:$PATH
-{{- if contains .chezmoi.fqdnHostname "dev-dsk" }}
+{{- if contains "dev-dsk" .chezmoi.fqdnHostname }}
 export PATH=/apollo/env/envImprovement/bin:$PATH
 {{- end }}
 
@@ -38,7 +38,7 @@ auth () {
      mwinit;
   fi
   # If on Cloud desktop, kerberos has to do be done via command line
-  {{- if contains .chezmoi.fqdnHostname "dev-dsk" }}
+  {{- if contains "dev-dsk" .chezmoi.fqdnHostname }}
   if ! klist -s ; then
       kinit -f -l 1d -r 30d
   fi
