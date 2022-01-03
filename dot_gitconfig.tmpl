@@ -1,0 +1,15 @@
+# This is Git's per-user configuration file.
+[user]
+	name = "Clay McGinnis"
+        {{- if contains .chezmoi.fqdnHostname "amazon.com" }}
+        email = "clamcgin@amazon.com"
+        {{- else }}
+        email = "github@clay.sh"
+        {{- end }}
+[core]
+	excludesfile = ~/.gitignore
+	autocrlf = input
+[pull]
+	rebase = true
+[log]
+        date = local

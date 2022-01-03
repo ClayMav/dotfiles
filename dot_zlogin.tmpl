@@ -1,0 +1,47 @@
+export BRAZIL_WORKSPACE_DEFAULT_LAYOUT=short
+export AUTO_TITLE_SCREENS="NO"
+export JAVA_TOOLS_OPTIONS="-Dlog4j2.formatMsgNoLookups=true"
+
+# PATH changes
+export PATH=$HOME/.toolbox/bin:$PATH
+export PATH=~/.rodar/bin:$PATH
+{{- if contains .chezmoi.fqdnHostname "dev-dsk" }}
+export PATH=/apollo/env/envImprovement/bin:$PATH
+{{- end }}
+
+# Aliases
+## Amazon Aliases
+alias bb=brazil-build
+alias bba='brazil-build apollo-pkg'
+alias bre='brazil-runtime-exec'
+alias brc='brazil-recursive-cmd'
+alias bws='brazil ws'
+alias bwsuse='bws use --gitMode -p'
+alias bwscreate='bws create -n'
+alias brc=brazil-recursive-cmd
+alias bbr='brc brazil-build'
+alias bball='brc --allPackages'
+alias bbb='brc --allPackages brazil-build'
+alias bbra='bbr apollo-pkg'
+
+# RAID Aliases
+alias bark='/apollo/env/BarkCLI/bin/bark'
+
+## Personal aliases
+# TODO: Find a way to get nvim on AL2
+alias vim='/apollo/env/envImprovement/bin/vim'
+alias tmux='/apollo/env/envImprovement/bin/tmux'
+
+# Authenticate terminal
+auth () {
+  if ! mwinit -l >> /dev/null; then
+     mwinit;
+  fi
+  # If on Cloud desktop, kerberos has to do be done via command line
+  {{- if contains .chezmoi.fqdnHostname "dev-dsk" }}
+  if ! klist -s ; then
+      kinit -f -l 1d -r 30d
+  fi
+  {{- end }}
+}
+auth
