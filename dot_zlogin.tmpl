@@ -6,6 +6,7 @@ export JAVA_TOOLS_OPTIONS="-Dlog4j2.formatMsgNoLookups=true"
 export PATH=$HOME/.toolbox/bin:$PATH
 export PATH=~/.rodar/bin:$PATH
 {{- if contains "dev-dsk" .chezmoi.fqdnHostname }}
+## Dev desktop specific
 export PATH=/apollo/env/envImprovement/bin:$PATH
 {{- end }}
 
@@ -25,20 +26,52 @@ alias bbb='brc --allPackages brazil-build'
 alias bbra='bbr apollo-pkg'
 
 # RAID Aliases
+{{- if contains "dev-dsk" .chezmoi.fqdnHostname }}
+## Dev desktop specific
 alias bark='/apollo/env/BarkCLI/bin/bark'
+### Access A2S2 logs via Bark CLI
+#### NA Devo
+alias bka2s2_alpha='bark -ep=https://timber-corp-pdx.pdx.proxy.amazon.com -a=556885533489 -ms=com.amazon.access.alexa-assistance-na-alpha-puller-2'
+alias bka2s2_beta='bark -ep=https://timber-corp-pdx.pdx.proxy.amazon.com -a=979608201629 -ms=com.amazon.access.alexa-assistance-na-beta-timber-puller-1'
+#### NA
+alias bka2s2_gamma='bark -ep=https://timber-corp-iad.iad.proxy.amazon.com -a=164303456410 -ms=com.amazon.access.alexa-assistance-na-gamma-puller-1'
+alias bka2s2_prod='bark -ep=https://timber-corp-iad.iad.proxy.amazon.com -a=109390835017 -ms=com.amazon.access.alexa-assistance-na-prod-puller-1'
+#### EU
+alias bka2s2_eu_gamma='bark -ep=https://timber-corp-dub.dub.proxy.amazon.com -a=939218896122 -ms=com.amazon.access.alexa-assistance-eu-gamma-puller-1'
+alias bka2s2_eu_prod='bark -ep=https://timber-corp-dub.dub.proxy.amazon.com -a=314855493922 -ms=com.amazon.access.alexa-assistance-eu-prod-puller-1'
+#### FE
+alias bka2s2_fe_gamma='bark -ep=https://timber-corp-pdx.pdx.proxy.amazon.com -a=812700045073 -ms=com.amazon.access.alexa-assistance-fe-gamma-puller-1'
+alias bka2s2_fe_prod='bark -ep=https://timber-corp-pdx.pdx.proxy.amazon.com -a=402919499835 -ms=com.amazon.access.alexa-assistance-fe-prod-puller-1'
+### Access AOS logs via Bark CLI
+#### NA Devo
+alias bkaos_alpha='bark -ep=https://timber-corp-pdx.pdx.proxy.amazon.com -a=740376246453 -ms=com.amazon.access.assist-orchestrator-na-alpha-puller-1'
+alias bkaos_beta='bark -ep=https://timber-corp-pdx.pdx.proxy.amazon.com -a=836113962823 -ms=com.amazon.access.assist-orchestrator-na-beta-timber-puller-1'
+#### NA
+alias bkaos_gamma='bark -ep=https://timber-corp-iad.iad.proxy.amazon.com -a=437709396162 -ms=com.amazon.access.assist-orchestrator-na-preprod-puller-1'
+alias bkaos_prod='bark -ep=https://timber-corp-iad.iad.proxy.amazon.com -a=382909341653 -ms=com.amazon.access.assist-orchestrator-na-prod-puller-1'
+#### EU
+alias bkaos_eu_gamma='bark -ep=https://timber-corp-dub.dub.proxy.amazon.com -a=535217119632 -ms=com.amazon.access.assist-orchestrator-eu-gamma-puller-1'
+alias bkaos_eu_prod='bark -ep=https://timber-corp-dub.dub.proxy.amazon.com -a=975666526661 -ms=com.amazon.access.assist-orchestrator-eu-prod-puller-1'
+#### FE
+alias bkaos_fe_gamma='bark -ep=https://timber-corp-pdx.pdx.proxy.amazon.com -a=717616613915 -ms=com.amazon.access.assist-orchestrator-fe-gamma-puller-1'
+alias bkaos_fe_prod='bark -ep=https://timber-corp-pdx.pdx.proxy.amazon.com -a=051062531025 -ms=com.amazon.access.assist-orchestrator-fe-prod-puller-1'
+{{- end }}
 
 ## Personal aliases
+{{- if contains "dev-dsk" .chezmoi.fqdnHostname }}
+## Dev desktop specific
 # TODO: Find a way to get nvim on AL2
 alias vim='/apollo/env/envImprovement/bin/vim'
 alias tmux='/apollo/env/envImprovement/bin/tmux'
+{{- end }}
 
 # Authenticate terminal
 auth () {
   if ! mwinit -l >> /dev/null; then
      mwinit;
   fi
-  # If on Cloud desktop, kerberos has to do be done via command line
   {{- if contains "dev-dsk" .chezmoi.fqdnHostname }}
+  # If on Cloud desktop, kerberos has to do be done via command line
   if ! klist -s ; then
       kinit -f -l 1d -r 30d
   fi
