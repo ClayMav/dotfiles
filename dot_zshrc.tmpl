@@ -8,7 +8,11 @@ ZSH_THEME="robbyrussell"
 
 DISABLE_UPDATE_PROMPT="true"
 
+{{- if contains "dev-dsk" .chezmoi.fqdnHostname }}
+ZSH_TMUX_AUTOSTART=false
+{{- else }}
 ZSH_TMUX_AUTOSTART=true
+{{- end }}
 ZSH_TMUX_AUTOCONNECT=false
 ZSH_TMUX_AUTOQUIT=false
 
