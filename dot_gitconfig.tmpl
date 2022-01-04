@@ -1,7 +1,7 @@
 # This is Git's per-user configuration file.
 [user]
 	name = "Clay McGinnis"
-        {{- if contains "amazon.com" .chezmoi.fqdnHostname }}
+        {{- if contains "amazon.com" (output "hostname") }}
         email = "clamcgin@amazon.com"
         {{- else }}
         email = "github@clay.sh"

@@ -5,7 +5,7 @@ export JAVA_TOOLS_OPTIONS="-Dlog4j2.formatMsgNoLookups=true"
 # PATH changes
 export PATH=$HOME/.toolbox/bin:$PATH
 export PATH=~/.rodar/bin:$PATH
-{{- if contains "dev-dsk" .chezmoi.fqdnHostname }}
+{{- if contains "dev-dsk" (output "hostname") }}
 ## Dev desktop specific
 export PATH=/apollo/env/envImprovement/bin:$PATH
 {{- end }}
@@ -26,7 +26,7 @@ alias bbb='brc --allPackages brazil-build'
 alias bbra='bbr apollo-pkg'
 
 # RAID Aliases
-{{- if contains "dev-dsk" .chezmoi.fqdnHostname }}
+{{- if contains "dev-dsk" (output "hostname") }}
 ## Dev desktop specific
 alias bark='/apollo/env/BarkCLI/bin/bark'
 ### Access A2S2 logs via Bark CLI
@@ -58,7 +58,7 @@ alias bkaos_fe_prod='bark -ep=https://timber-corp-pdx.pdx.proxy.amazon.com -a=05
 {{- end }}
 
 ## Personal aliases
-{{- if contains "dev-dsk" .chezmoi.fqdnHostname }}
+{{- if contains "dev-dsk" (output "hostname") }}
 ## Dev desktop specific
 # TODO: Find a way to get nvim on AL2
 alias vim='/apollo/env/envImprovement/bin/vim'
@@ -70,7 +70,7 @@ auth () {
   if ! mwinit -l >> /dev/null; then
      mwinit;
   fi
-  {{- if contains "dev-dsk" .chezmoi.fqdnHostname }}
+  {{- if contains "dev-dsk" (output "hostname") }}
   # If on Cloud desktop, kerberos has to do be done via command line
   if ! klist -s ; then
       kinit -f -l 1d -r 30d
@@ -78,3 +78,9 @@ auth () {
   {{- end }}
 }
 auth
+
+# Add ssh keys to ssh-agent
+if [ -z "$SSH_AUTH_SOCK" ] ; then
+  eval `ssh-agent -s`
+  ssh-add ~/.ssh/id_rsa
+fi
