@@ -77,11 +77,15 @@ auth () {
       kinit -f -l 1d -r 30d
   fi
   {{- end }}
+  # Add ssh keys to ssh-agent
+  if [ -z "$SSH_AUTH_SOCK" ] ; then
+    eval `ssh-agent -s`
+  fi
+  {{- if (eq .chezmoi.os "darwin") }}
+  ssh-add -K ~/.ssh/id_rsa
+  {{- else }}
+  ssh-add ~/.ssh/id_rsa
+  {{- end }}
 }
 auth
 
-# Add ssh keys to ssh-agent
-if [ -z "$SSH_AUTH_SOCK" ] ; then
-  eval `ssh-agent -s`
-  ssh-add ~/.ssh/id_rsa
-fi
