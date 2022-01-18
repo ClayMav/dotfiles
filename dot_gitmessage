@@ -1,0 +1,35 @@
+# begin header
+type: subject
+# end header
+ 
+# begin body
+# body(optional)
+# end body
+ 
+# begin footer
+jira
+# end footer
+ 
+# CR Link(auto-appended)
+ 
+#
+# GUIDELINE:
+#   type:
+#     - Build: brazil change, new dependency, etc
+#     - Chore: non-prod code change which is neither fix, feature nor refactor
+#     - Docs: only documentation
+#     - Feature: code change for a feature
+#     - Fix: code change for a bug fix
+#     - Performance: code change for improving performance
+#     - Refactor: code change which is neither a fix nor a feature
+#     - Test: add or modify tests
+#   subject:
+#     - use the imperative, present tense: "add" not "added" nor "adds"
+#     - don't capitalize the first letter
+#     - no dot (.) at the end
+#   body(optional):
+#     - motivation for the change
+#   footer:
+#     - link to JIRA ticket
+#     - link to reference documentation
+#

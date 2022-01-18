@@ -13,3 +13,8 @@
 	rebase = true
 [log]
         date = local
+
+{{- if contains "amazon.com" (output "hostname") }}
+[commit]
+        template = ~/.gitmessage
+{{- end }}

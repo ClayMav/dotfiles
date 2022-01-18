@@ -1,4 +1,5 @@
 # If not a work machine, exclude the .zlogin file
 {{- if not (contains "amazon.com" (output "hostname")) }}
 .zlogin
+.gitmessage
 {{- end }}
