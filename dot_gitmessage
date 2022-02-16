@@ -1,16 +1,15 @@
-# begin header
+# header
 type: subject
-# end header
  
-# begin body
 # body(optional)
-# end body
  
-# begin footer
-jira
-# end footer
+# testing
+- Does this change require regression testing?
+# - If yes, what are the regression test scenarios that should be tested?
  
-# CR Link(auto-appended)
+# footer
+jira:
+# cr: cr link (auto-appended)
  
 #
 # GUIDELINE:
@@ -29,6 +28,8 @@ jira
 #     - no dot (.) at the end
 #   body(optional):
 #     - motivation for the change
+#   testing:
+#     - testing required for this change
 #   footer:
 #     - link to JIRA ticket
 #     - link to reference documentation
