@@ -70,5 +70,14 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+# Nomad and Vault addresses
 export NOMAD_ADDR="http://nomad-servers.prod.stratos.host:4646"
 export VAULT_ADDR="https://vault.prod.stratos.host:8200"
+
+# Change brew cask install directory
+export HOMEBREW_CASK_OPTS="--appdir=~/Applications"
+
+{{- if eq .chezmoi.arch "arm64" }}
+# Homebrew M1
+export PATH=/opt/homebrew/bin:$PATH
+{{- end }}
