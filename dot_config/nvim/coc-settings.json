@@ -1,4 +1,17 @@
 {
+  "eslint.run": "onSave",
+  "eslint.format.enable": true,
   "eslint.autoFixOnSave": true,
-  "eslint.packageManager": "yarn"
+  "eslint.packageManager": "yarn",
+  "prettier.formatterPriority": 3,
+  "coc.preferences.formatOnSaveFiletypes": [
+    "markdown",
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "json",
+    "graphql",
+    "elixir"
+  ]
 }
