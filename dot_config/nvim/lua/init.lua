@@ -46,7 +46,7 @@ packer.startup(function()
   use 'nvim-treesitter/nvim-treesitter-textobjects'
 
   -- Theme
-  use 'tomasiser/vim-code-dark'
+  use 'ghifarit53/tokyonight-vim'
 
   -- Other stuff
   use 'tpope/vim-fugitive' -- Git commands in nvim
@@ -58,7 +58,7 @@ packer.startup(function()
 
 -- Set colorscheme
 vim.o.termguicolors = true
-vim.cmd [[colorscheme codedark]]
+vim.cmd [[colorscheme tokyonight]]
 
 -- Make comments italic
 vim.highlight.create('Comment', {cterm='italic', gui='italic'}, false)
