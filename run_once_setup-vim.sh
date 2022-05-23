@@ -1,8 +1,4 @@
 #!/bin/bash
-# Create directories for use with vim
-mkdir -p ~/.vim/tmp/undo
-mkdir -p ~/.vim/tmp/backup
-mkdir -p ~/.vim/tmp/swp
 
 # Create cron job to purge undofiles if source file is deleted
 crontab=crontab -l 2>/dev/null # Gets cron jobs
