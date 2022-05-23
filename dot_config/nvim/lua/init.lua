@@ -3,65 +3,76 @@ local execute = vim.api.nvim_command
 local fn = vim.fn
 
 -- ensure that packer is installed
-local install_path = fn.stdpath('data')..'/site/pack/packer/opt/packer.nvim'
+local install_path = fn.stdpath('data') .. '/site/pack/packer/opt/packer.nvim'
 if fn.empty(fn.glob(install_path)) > 0 then
-    execute('!git clone https://github.com/wbthomason/packer.nvim '..install_path)
-    execute 'packadd packer.nvim'
+	execute('!git clone https://github.com/wbthomason/packer.nvim ' .. install_path)
+	execute 'packadd packer.nvim'
 end
 vim.cmd('packadd packer.nvim')
-local packer = require'packer'
-local util = require'packer.util'
+local packer = require 'packer'
+local util = require 'packer.util'
 packer.init({
-  package_root = util.join_paths(vim.fn.stdpath('data'), 'site', 'pack')
+	package_root = util.join_paths(vim.fn.stdpath('data'), 'site', 'pack')
 })
 
 --- startup and add configure plugins
 packer.startup(function()
-  local use = use
-  use {
-    'VonHeikemen/lsp-zero.nvim', -- Allows for 0 config lsp setup
-    requires = {
-      -- LSP Support
-      {'neovim/nvim-lspconfig'},
-      {'williamboman/nvim-lsp-installer'},
+	local use = use
+	use {
+		'VonHeikemen/lsp-zero.nvim', -- Allows for 0 config lsp setup
+		requires = {
+			-- LSP Support
+			{ 'neovim/nvim-lspconfig' },
+			{ 'williamboman/nvim-lsp-installer' },
 
-      -- Autocompletion
-      {'hrsh7th/nvim-cmp'},
-      {'hrsh7th/cmp-cmdline'},
-      {'hrsh7th/cmp-buffer'},
-      {'hrsh7th/cmp-path'},
-      {'saadparwaiz1/cmp_luasnip'},
-      {'hrsh7th/cmp-nvim-lsp'},
-      {'hrsh7th/cmp-nvim-lua'},
+			-- Autocompletion
+			{ 'hrsh7th/nvim-cmp' },
+			{ 'hrsh7th/cmp-cmdline' },
+			{ 'hrsh7th/cmp-buffer' },
+			{ 'hrsh7th/cmp-path' },
+			{ 'saadparwaiz1/cmp_luasnip' },
+			{ 'hrsh7th/cmp-nvim-lsp' },
+			{ 'hrsh7th/cmp-nvim-lua' },
 
-      -- Snippets
-      {'L3MON4D3/LuaSnip'},
-      {'rafamadriz/friendly-snippets'},
-    }
-  }
+			-- Snippets
+			{ 'L3MON4D3/LuaSnip' },
+			{ 'rafamadriz/friendly-snippets' },
+		}
+	}
 
-  -- Treesitter
-  use 'nvim-treesitter/nvim-treesitter'
-  -- Additional textobjects for treesitter
-  use 'nvim-treesitter/nvim-treesitter-textobjects'
+	-- Treesitter
+	use 'nvim-treesitter/nvim-treesitter'
+	-- Additional textobjects for treesitter
+	use 'nvim-treesitter/nvim-treesitter-textobjects'
 
-  -- Theme
-  use 'ghifarit53/tokyonight-vim'
+	-- Theme
+	use 'folke/tokyonight.nvim'
 
-  -- Other stuff
-  use 'tpope/vim-fugitive' -- Git commands in nvim
-  use 'tpope/vim-commentary' -- Comment with gcc or gc
-  use 'ludovicchabant/vim-gutentags' -- Automatic tags management
+	-- Other stuff
+	use 'tpope/vim-fugitive' -- Git commands in nvim
+	use 'tpope/vim-commentary' -- Comment with gcc or gc
+	use 'ludovicchabant/vim-gutentags' -- Automatic tags management
+	use 'farmergreg/vim-lastplace' -- Resume at the last known line in file
 
-  end
+end
 )
 
 -- Set colorscheme
 vim.o.termguicolors = true
+
+vim.g.tokyonight_style = "night"
+vim.g.tokyonight_italic_functions = true
+vim.g.tokyonight_sidebars = { "qf", "vista_kind", "terminal", "packer" }
+
+-- Undercurl
+vim.cmd('set -g default-terminal "${TERM}"')
+vim.cmd('set -as terminal-overrides \',*:Smulx=\\E[4::%p1%dm\'')
+vim.cmd('set -as terminal-overrides \',*:Setulc=\\E[58::2::%p1%{65536}%/%d::%p1%{256}%/%{255}%&%d::%p1%{255}%&%d%;m\'')
+
 vim.cmd [[colorscheme tokyonight]]
 
 -- Make comments italic
-vim.highlight.create('Comment', {cterm='italic', gui='italic'}, false)
+vim.highlight.create('Comment', { cterm = 'italic', gui = 'italic' }, false)
 
 -- TODO: add lightline
 
@@ -124,64 +135,64 @@ vim.o.completeopt = 'menuone,noselect'
 -- Highlight on yank
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
 vim.api.nvim_create_autocmd('TextYankPost', {
-  callback = function()
-    vim.highlight.on_yank()
-  end,
-  group = highlight_group,
-  pattern = '*',
+	callback = function()
+		vim.highlight.on_yank()
+	end,
+	group = highlight_group,
+	pattern = '*',
 })
 
 -- Treesitter configuration
 -- Parsers must be installed manually via :TSInstall
 require('nvim-treesitter.configs').setup {
-  highlight = {
-    enable = true, -- false will disable the whole extension
-  },
-  incremental_selection = {
-    enable = true,
-    keymaps = {
-      init_selection = 'gnn',
-      node_incremental = 'grn',
-      scope_incremental = 'grc',
-      node_decremental = 'grm',
-    },
-  },
-  indent = {
-    enable = true,
-  },
-  textobjects = {
-    select = {
-      enable = true,
-      lookahead = true, -- Automatically jump forward to textobj, similar to targets.vim
-      keymaps = {
-        -- You can use the capture groups defined in textobjects.scm
-        ['af'] = '@function.outer',
-        ['if'] = '@function.inner',
-        ['ac'] = '@class.outer',
-        ['ic'] = '@class.inner',
-      },
-    },
-    move = {
-      enable = true,
-      set_jumps = true, -- whether to set jumps in the jumplist
-      goto_next_start = {
-        [']m'] = '@function.outer',
-        [']]'] = '@class.outer',
-      },
-      goto_next_end = {
-        [']M'] = '@function.outer',
-        [']['] = '@class.outer',
-      },
-      goto_previous_start = {
-        ['[m'] = '@function.outer',
-        ['[['] = '@class.outer',
-      },
-      goto_previous_end = {
-        ['[M'] = '@function.outer',
-        ['[]'] = '@class.outer',
-      },
-    },
-  },
+	highlight = {
+		enable = true, -- false will disable the whole extension
+	},
+	incremental_selection = {
+		enable = true,
+		keymaps = {
+			init_selection = 'gnn',
+			node_incremental = 'grn',
+			scope_incremental = 'grc',
+			node_decremental = 'grm',
+		},
+	},
+	indent = {
+		enable = true,
+	},
+	textobjects = {
+		select = {
+			enable = true,
+			lookahead = true, -- Automatically jump forward to textobj, similar to targets.vim
+			keymaps = {
+				-- You can use the capture groups defined in textobjects.scm
+				['af'] = '@function.outer',
+				['if'] = '@function.inner',
+				['ac'] = '@class.outer',
+				['ic'] = '@class.inner',
+			},
+		},
+		move = {
+			enable = true,
+			set_jumps = true, -- whether to set jumps in the jumplist
+			goto_next_start = {
+				[']m'] = '@function.outer',
+				[']]'] = '@class.outer',
+			},
+			goto_next_end = {
+				[']M'] = '@function.outer',
+				[']['] = '@class.outer',
+			},
+			goto_previous_start = {
+				['[m'] = '@function.outer',
+				['[['] = '@class.outer',
+			},
+			goto_previous_end = {
+				['[M'] = '@function.outer',
+				['[]'] = '@class.outer',
+			},
+		},
+	},
 }
 
 local lsp = require('lsp-zero')
@@ -189,4 +200,5 @@ local lsp = require('lsp-zero')
 lsp.preset('recommended')
 lsp.nvim_workspace()
 lsp.setup()
-vim.diagnostic.config({virtual_text = true})
+vim.diagnostic.config({ virtual_text = true })
+vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.formatting_sync()]]
