@@ -25,6 +25,11 @@ command_exists() {
   hash "$1" 2> /dev/null;
 }
 
+{{- if eq .chezmoi.arch "arm64" }}
+# Homebrew M1
+export PATH=/opt/homebrew/bin:$PATH
+{{- end }}
+
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -77,8 +82,3 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 # Nomad and Vault addresses
 export NOMAD_ADDR="http://nomad-servers.prod.stratos.host:4646"
 export VAULT_ADDR="https://vault.prod.stratos.host:8200"
-
-{{- if eq .chezmoi.arch "arm64" }}
-# Homebrew M1
-export PATH=/opt/homebrew/bin:$PATH
-{{- end }}
