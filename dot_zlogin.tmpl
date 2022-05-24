@@ -83,7 +83,7 @@ auth () {
   fi
   ssh-add -D
   {{- if (eq .chezmoi.os "darwin") }}
-  ssh-add -K ~/.ssh/id_rsa
+  ssh-add --apple-use-keychain ~/.ssh/id_rsa
   {{- else }}
   ssh-add ~/.ssh/id_rsa
   {{- end }}
