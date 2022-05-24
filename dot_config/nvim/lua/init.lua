@@ -64,11 +64,6 @@ vim.g.tokyonight_style = "night"
 vim.g.tokyonight_italic_functions = true
 vim.g.tokyonight_sidebars = { "qf", "vista_kind", "terminal", "packer" }
 
--- Undercurl
-vim.cmd('set -g default-terminal "${TERM}"')
-vim.cmd('set -as terminal-overrides \',*:Smulx=\\E[4::%p1%dm\'')
-vim.cmd('set -as terminal-overrides \',*:Setulc=\\E[58::2::%p1%{65536}%/%d::%p1%{256}%/%{255}%&%d::%p1%{255}%&%d%;m\'')
-
 vim.cmd [[colorscheme tokyonight]]
 
 -- Make comments italic
