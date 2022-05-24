@@ -1,0 +1,66 @@
+# https://github.com/Homebrew/homebrew-bundle
+
+# add taps
+tap "earthly/earthly"
+tap "homebrew/bundle"
+tap 'homebrew/cask'
+tap 'homebrew/cask-fonts'
+tap "homebrew/core"
+tap 'homebrew/services'
+
+# Install packages
+brew 'bash'
+brew 'bash-completion'
+brew 'brew-cask-completion'
+brew 'cmake'
+brew 'chezmoi'
+brew 'croc'
+brew 'curl'
+brew 'exa'
+brew 'go'
+brew 'git'
+brew 'jq'
+brew 'neovim'
+brew 'node'
+brew 'nvm'
+brew 'pgcli'
+brew 'ripgrep'
+brew 'tmux'
+brew 'tldr'
+brew 'wget'
+brew 'yarn'
+brew 'zsh'
+brew 'zsh-completions'
+brew 'zsh-syntax-highlighting'
+
+# Bloomin' Labs
+brew 'act'
+brew 'consul'
+brew 'earthly'
+brew 'envconsul'
+brew 'nomad'
+brew 'pulumi'
+brew 'vault'
+brew 'earthly/earthly/earthly'
+
+# Install casks
+cask 'balenaetcher'
+cask 'discord'
+cask 'docker'
+cask 'firefox'
+cask 'font-hack-nerd-font'
+cask 'figma'
+cask 'google-drive'
+cask 'google-chrome'
+cask 'iterm2'
+cask 'insomnia'
+cask 'mactex'
+cask 'marvin'
+cask 'notion'
+cask 'postico'
+cask 'private-internet-access'
+cask 'spotify'
+cask 'skim'
+cask 'vagrant'
+cask 'vlc'
+cask 'visual-studio-code'
