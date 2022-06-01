@@ -120,3 +120,5 @@ assumeConduitRole () {
     echo "set session_token $session_token"
 
 }
+
+if [ -e /home/clamcgin/.nix-profile/etc/profile.d/nix.sh ]; then . /home/clamcgin/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
