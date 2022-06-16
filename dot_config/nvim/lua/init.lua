@@ -51,8 +51,8 @@ packer.startup(function()
 	-- Other stuff
 	use 'tpope/vim-fugitive' -- Git commands in nvim
 	use 'tpope/vim-commentary' -- Comment with gcc or gc
-	use 'ludovicchabant/vim-gutentags' -- Automatic tags management
-	use 'farmergreg/vim-lastplace' -- Resume at the last known line in file
+	use "ethanholz/nvim-lastplace"
+	use "windwp/nvim-autopairs"
 
 end
 )
@@ -191,6 +191,8 @@ require('nvim-treesitter.configs').setup {
 }
 
 local lsp = require('lsp-zero')
+require 'nvim-lastplace'.setup {}
+require 'nvim-autopairs'.setup {}
 
 lsp.preset('recommended')
 lsp.nvim_workspace()
