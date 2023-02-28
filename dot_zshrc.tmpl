@@ -82,3 +82,12 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 # Nomad and Vault addresses
 export NOMAD_ADDR="http://nomad-servers.prod.stratos.host:4646"
 export VAULT_ADDR="https://vault.prod.stratos.host:8200"
+export CONSUL_HTTP_ADDR="https://nomad-servers.prod.stratos.host:8501"
+
+JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk-19.0.2.jdk/Contents/Home"
+PATH="${JAVA_HOME}/bin:${PATH}"
+export PATH
+
+export M2_HOME="/Users/clay/Downloads/apache-maven-3.9.0"
+PATH="${M2_HOME}/bin:${PATH}"
+export PATH
