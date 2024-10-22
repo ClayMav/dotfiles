@@ -25,6 +25,17 @@
             ./hosts/work-macbook/default.nix
           ];
         };
+        "MavBook-Pro" = nix-darwin.lib.darwinSystem {
+          specialArgs = { inherit inputs; };
+          system = "aarch64-darwin";
+          modules = [
+            nix-homebrew.darwinModules.nix-homebrew
+            home-manager.darwinModules.home-manager
+            ./modules/common.nix
+            ./modules/darwin-common.nix
+            ./hosts/personal-macbook/default.nix
+          ];
+        };
       };
     };
 }

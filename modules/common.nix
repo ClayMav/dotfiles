@@ -12,41 +12,30 @@
       pkgs.git
       pkgs.zsh
       pkgs.tmux
-      pkgs.envconsul
       pkgs.fnm
-      pkgs.awscli2
       pkgs.gh
       pkgs.bun
-      pkgs.go
-      pkgs.consul
-      pkgs.vault-bin
-      pkgs.consul-template
       pkgs.curl
       pkgs.wget
       pkgs.wezterm
       pkgs.google-chrome
       #   pkgs.spotify
-      pkgs.discord
       pkgs.docker
       pkgs.jetbrains.datagrip
-      pkgs.openvpn
       pkgs.inkscape
       pkgs.gimp
       pkgs.rectangle
-      pkgs.slack
       pkgs.tailscale
-      pkgs.zoom-us
       pkgs.ripgrep
       pkgs.nodePackages.localtunnel
       pkgs.fzf
-      pkgs.nomad
       pkgs.sqlite
       pkgs.poetry
       pkgs.uv
-      # pkgs.pulumi
       pkgs.tldr
       pkgs.nodePackages.vercel
       pkgs.watch
+      pkgs.oh-my-zsh
       pkgs.zsh-completions
       pkgs.zsh-autosuggestions
       pkgs.zsh-syntax-highlighting

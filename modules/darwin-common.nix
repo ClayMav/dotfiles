@@ -49,6 +49,10 @@
   };
 
   system.defaults = {
+    finder = {
+      ShowStatusBar = true;
+      ShowPathbar = true;
+    };
     dock = {
       autohide = true;
       mru-spaces = false;
@@ -71,7 +75,7 @@
     onActivation.upgrade = true;
 
     brews = [ "mas" ];
-    casks = [ "figma" "google-drive" "firefox" "spotify" "cursor" "docker" "shottr" "logitech-g-hub" "monokle" "notion" ];
+    casks = [ "figma" "firefox" "spotify" "cursor" "docker" "shottr" "logitech-g-hub" "notion" ];
     masApps = {
       Bitwarden = 1352778147;
       Tailscale = 1475387142;
