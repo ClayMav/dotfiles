@@ -22,4 +22,10 @@
     # pkgs.steam
     # pkgs.todoist-electron
   ];
+  system.defaults.dock.persistent-apps = [
+    "/Applications/Notion.app"
+    "/Applications/Brave Browser.app"
+    "/Applications/Todoist.app"
+    "/Applications/Cursor.app"
+  ];
 }
