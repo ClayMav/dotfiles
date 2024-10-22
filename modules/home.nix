@@ -10,4 +10,8 @@
   home.sessionVariables = {
     EDITOR = "vim";
   };
+
+  home-manager.useGlobalPkgs = true;
+  home-manager.useUserPackages = true;
+  home-manager.users.clay = import ./modules/home.nix;
 }

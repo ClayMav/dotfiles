@@ -1,5 +1,6 @@
 { pkgs, ... }@inputs:
 {
+  system.stateVersion = 5;
   nixpkgs.config.allowUnfree = true;
 
   # List packages installed in system profile. To search by name, run:
@@ -13,12 +14,12 @@
       pkgs.tmux
       pkgs.envconsul
       pkgs.fnm
-      pkgs.awscli
+      pkgs.awscli2
       pkgs.gh
       pkgs.bun
       pkgs.go
       pkgs.consul
-      pkgs.vault
+      pkgs.vault-bin
       pkgs.consul-template
       pkgs.curl
       pkgs.wget
@@ -42,7 +43,7 @@
       pkgs.sqlite
       pkgs.poetry
       pkgs.uv
-      pkgs.pulumi
+      # pkgs.pulumi
       pkgs.tldr
       pkgs.nodePackages.vercel
       pkgs.watch

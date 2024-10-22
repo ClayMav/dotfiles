@@ -1,11 +1,19 @@
 { config, pkgs, self, ... }@inputs:
 {
+  nix-homebrew = {
+    enable = true;
+    enableRosetta = true;
+    user = "clay";
+    autoMigrate = true;
+  };
+
   # The platform the configuration will be used on.
   nixpkgs.hostPlatform = "aarch64-darwin";
 
   # Used for backwards compatibility, please read the changelog before changing.
   # $ darwin-rebuild changelog
   system.stateVersion = 5;
+
   # Set Git commit hash for darwin-version.
   # system.configurationRevision = self.rev or self.dirtyRev or null;
 
@@ -35,6 +43,7 @@
   programs.zsh.enable = true; # default shell on catalina
   # programs.fish.enable = true;
   security.pam.enableSudoTouchIdAuth = true;
+
   users.users.clay = {
     home = "/Users/clay";
   };
@@ -64,7 +73,8 @@
     brews = [ "mas" ];
     casks = [ "figma" "google-drive" "firefox" "spotify" "cursor" "docker" "shottr" "logitech-g-hub" "monokle" "notion" ];
     masApps = {
-      # Bitwarden = 1352778147;
+      Bitwarden = 1352778147;
+      Tailscale = 1475387142;
     };
   };
 }
