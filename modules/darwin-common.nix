@@ -49,6 +49,8 @@
   };
 
   system.defaults = {
+    CustomSystemPreferences.NSGlobalDomain."com.apple.mouse.linear" = true;
+    ".GlobalPreferences"."com.apple.mouse.scaling" = 0.875;
     finder = {
       ShowStatusBar = true;
       ShowPathbar = true;

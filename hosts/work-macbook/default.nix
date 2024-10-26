@@ -10,6 +10,8 @@
     pkgs.openvpn
     pkgs.awscli2
     pkgs.kubernetes-helm
+    pkgs.nix-search-cli
+    pkgs.harlequin
   ];
   system.defaults.dock.persistent-apps = [
     "/System/Applications/Mail.app"
