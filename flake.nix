@@ -20,6 +20,12 @@
           modules = [
             nix-homebrew.darwinModules.nix-homebrew
             home-manager.darwinModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.clay = import ./modules/home.nix;
+              home-manager.backupFileExtension = "backup";
+            }
             ./modules/common.nix
             ./modules/darwin-common.nix
             ./hosts/work-macbook/default.nix
@@ -31,6 +37,12 @@
           modules = [
             nix-homebrew.darwinModules.nix-homebrew
             home-manager.darwinModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.clay = import ./modules/home.nix;
+              home-manager.backupFileExtension = "backup";
+            }
             ./modules/common.nix
             ./modules/darwin-common.nix
             ./hosts/personal-macbook/default.nix

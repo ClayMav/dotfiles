@@ -3,7 +3,7 @@
   users.users.clay = {
     home = "/Users/clay";
   };
-  homebrew.casks = [ "discord" "google-drive" "parsec" "steam" "todoist" ];
+  homebrew.casks = [ "discord" "google-drive" "parsec" "steam" "todoist" "notion-calendar" ];
   environment.systemPackages = [
     pkgs.delve
     pkgs.earthly
@@ -23,7 +23,9 @@
     # pkgs.todoist-electron
   ];
   system.defaults.dock.persistent-apps = [
+    "/Applications/Discord.app"
     "/Applications/Notion.app"
+    "/Applications/Notion Calendar.app"
     "/Applications/Brave Browser.app"
     "/Applications/Todoist.app"
     "/Applications/Cursor.app"
