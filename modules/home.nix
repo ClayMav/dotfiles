@@ -88,7 +88,7 @@ in
     # TODO: add vim
   };
   # Cursor settings
-  home.file."~/Library/Application Support/Cursor/User/settings.json".source = ./cursor/settings.json;
+  home.file."/Users/clay/Library/Application Support/Cursor/User/settings.json".source = ./cursor/settings.json;
   # Cursor extensions
   home.activation.cursorExtensions = lib.hm.dag.entryAfter [ "writeBoundary" ] (
     builtins.concatStringsSep "\n" cursorExtensionCommands
