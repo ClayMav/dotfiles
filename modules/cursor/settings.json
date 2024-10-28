@@ -1,0 +1,63 @@
+{
+    "// Window Settings": true,
+    "editor.fontFamily": "Monaco, Hack, Menlo, 'Courier New', monospace",
+    "editor.fontSize": 13,
+    "terminal.integrated.fontSize": 14,
+    "// Layout": true,
+    "editor.minimap.enabled": false,
+    "explorer.confirmDragAndDrop": false,
+    "// General": true,
+    "workbench.preferredLightColorTheme": "Catppuccin Latte",
+    "workbench.preferredDarkColorTheme": "Catppuccin Macchiato",
+    "editor.formatOnSave": true,
+    "terminal.integrated.scrollback": 10000,
+    "search.followSymlinks": false,
+    "editor.unicodeHighlight.nonBasicASCII": false,
+    "files.eol": "\n",
+    "editor.fontLigatures": false,
+    "terminal.integrated.defaultProfile.windows": "Git Bash",
+    "update.showReleaseNotes": false,
+    "window.autoDetectColorScheme": true,
+    "githubPullRequests.terminalLinksHandler": "github",
+    "githubPullRequests.pullBranch": "never",
+    "terminal.explorerKind": "external",
+    "explorer.fileNesting.patterns": {
+        ".prettierrc": ".prettierignore",
+        ".gitignore": ".gitattributes",
+        ".eslintrc.json": ".eslintignore",
+        ".eslintrc": ".eslintignore"
+    },
+    "editor.detectIndentation": false,
+    "// Language Settings": true,
+    "eslint.format.enable": true,
+    "[typescript][typescriptreact][css][javascript][javascriptreact][mdx]": {
+        "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+        "editor.codeActionsOnSave": {
+            "source.fixAll": "explicit"
+        }
+    },
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "typescript.preferences.importModuleSpecifier": "non-relative",
+    "javascript.preferences.importModuleSpecifier": "non-relative",
+    "[markdown]": {
+        "editor.defaultFormatter": "DavidAnson.vscode-markdownlint",
+        "editor.formatOnSave": false
+    },
+    "[json][jsonc]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "// Python": true,
+    "[python]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "charliermarsh.ruff"
+    },
+    "python.analysis.typeCheckingMode": "strict",
+    "python.analysis.fixAll": [
+        "source.unusedImports",
+        "source.convertImportFormat"
+    ],
+    "python.analysis.autoImportCompletions": true,
+    "[yaml]": {
+        "editor.defaultFormatter": "redhat.vscode-yaml"
+    }
+}

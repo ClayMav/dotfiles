@@ -1,4 +1,25 @@
-{ pkgs, ... }@inputs: {
+{ pkgs, lib, ... }@inputs:
+let
+  vscodeExtensions = [
+    "redhat.vscode-yaml"
+    "charliermarsh.ruff"
+    "DavidAnson.vscode-markdownlint"
+    "ms-python.python"
+    "ms-python.debugpy"
+    "ms-python.mypy-type-checker"
+    "mikestead.dotenv"
+    "tamasfe.even-better-toml"
+    "GitHub.vscode-pull-request-github"
+    "eamodio.gitlens"
+    "ms-vscode.makefile-tools"
+    "vscodevim.vim"
+    "dbaeumer.vscode-eslint"
+    "YoavBls.pretty-ts-errors"
+    "Catppuccin.catppuccin-vsc"
+  ];
+  cursorExtensionCommands = builtins.map (ext: "/opt/homebrew/bin/cursor --install-extension ${ext}") vscodeExtensions;
+in
+{
   # this is internal compatibility configuration 
   # for home-manager, don't change this!
   home.stateVersion = "24.05";
@@ -6,6 +27,7 @@
   home.sessionVariables = {
     EDITOR = "vim";
   };
+
 
   programs = {
     home-manager.enable = true;
@@ -22,8 +44,8 @@
       initExtra = builtins.readFile ./dotfiles/zsh/.zshrc;
 
       shellAliases = {
-        command_exists = "hash \"$1\" 2> /dev/null;";
         vim = "nvim";
+        pr = "gh pr create --fill --web";
       };
 
       history = {
@@ -57,10 +79,18 @@
         log = { date = "local"; };
       };
     };
-    # config, ignore
-    # TODO: add cursor/vscode
-    # TODO: add docker
+    vscode = {
+      enable = true;
+      # extensions = with pkgs.vscode-extensions; vscodeExtensions;
+      userSettings = builtins.fromJSON (builtins.readFile ./cursor/settings.json);
+    };
     # TODO: add tmux
     # TODO: add vim
   };
+  # Cursor settings
+  home.file."~/Library/Application Support/Cursor/User/settings.json".source = ./cursor/settings.json;
+  # Cursor extensions
+  home.activation.cursorExtensions = lib.hm.dag.entryAfter [ "writeBoundary" ] (
+    builtins.concatStringsSep "\n" cursorExtensionCommands
+  );
 }
