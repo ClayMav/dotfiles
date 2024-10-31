@@ -15,7 +15,7 @@ let
     "vscodevim.vim"
     "dbaeumer.vscode-eslint"
     "YoavBls.pretty-ts-errors"
-    "Catppuccin.catppuccin-vsc"
+    "enkia.tokyo-night"
   ];
   cursorExtensionCommands = builtins.map (ext: "/opt/homebrew/bin/cursor --install-extension ${ext}") vscodeExtensions;
 in

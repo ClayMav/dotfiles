@@ -1,7 +1,7 @@
 local wezterm = require 'wezterm'
 local config = wezterm.config_builder()
 
-config.color_scheme = 'Catppuccin Macchiato'
+config.color_scheme = 'Tokyo Night Storm'
 
 config.font = wezterm.font("Monaco", {weight="Medium", stretch="Normal", style="Normal"})
 config.font_size = 14.0
