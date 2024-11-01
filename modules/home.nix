@@ -16,6 +16,7 @@ let
     "dbaeumer.vscode-eslint"
     "YoavBls.pretty-ts-errors"
     "enkia.tokyo-night"
+    "ryanluker.vscode-coverage-gutters"
   ];
   cursorExtensionCommands = builtins.map (ext: "/opt/homebrew/bin/cursor --install-extension ${ext}") vscodeExtensions;
 in
