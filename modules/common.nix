@@ -24,7 +24,6 @@
       pkgs.jetbrains.datagrip
       pkgs.inkscape
       pkgs.gimp
-      pkgs.rectangle
       pkgs.tailscale
       pkgs.ripgrep
       pkgs.nodePackages.localtunnel

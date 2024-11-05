@@ -8,7 +8,7 @@
     "explorer.confirmDragAndDrop": false,
     "// General": true,
     "git.autofetch": true,
-    "workbench.preferredLightColorTheme": "Tokyo Night Light",
+    "workbench.preferredLightColorTheme": "Light+",
     "workbench.preferredDarkColorTheme": "Tokyo Night Storm",
     "editor.formatOnSave": true,
     "terminal.integrated.scrollback": 10000,
