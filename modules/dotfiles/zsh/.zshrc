@@ -42,4 +42,3 @@ if [ -d ~/.aws/sso ] ; then
 fi
 
 export GITHUB_TOKEN=$(gh auth token)
-source "$HOME/.rye/env"
