@@ -40,6 +40,7 @@
       pkgs.zsh-syntax-highlighting
       pkgs.vlc-bin
       pkgs.monitorcontrol
+      pkgs.tree-sitter
 
       # Fix nix creating symlinks for applications, create aliases as well
       pkgs.mkalias

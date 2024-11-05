@@ -24,10 +24,10 @@
   ];
   system.defaults.dock.persistent-apps = [
     "/Applications/Discord.app"
+    "/Applications/Todoist.app"
     "/Applications/Notion.app"
     "/Applications/Notion Calendar.app"
     "/Applications/Brave Browser.app"
-    "/Applications/Todoist.app"
     "/Applications/Cursor.app"
   ];
 }
