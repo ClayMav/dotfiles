@@ -70,6 +70,10 @@
     };
   };
 
+  environment.systemPackages = [
+    pkgs.raycast
+  ];
+
   homebrew = {
     enable = true;
     onActivation.cleanup = "zap";
