@@ -18,7 +18,7 @@ let
     "enkia.tokyo-night"
     "ryanluker.vscode-coverage-gutters"
   ];
-  cursorExtensionCommands = builtins.map (ext: "/opt/homebrew/bin/cursor --install-extension ${ext}") vscodeExtensions;
+  cursorExtensionCommand = "/opt/homebrew/bin/cursor " + builtins.concatStringsSep " " (builtins.map (ext: "--install-extension ${ext}") vscodeExtensions);
 in
 {
   # this is internal compatibility configuration 
@@ -92,6 +92,8 @@ in
   home.file."/Users/clay/Library/Application Support/Cursor/User/settings.json".source = ./cursor/settings.json;
   # Cursor extensions
   home.activation.cursorExtensions = lib.hm.dag.entryAfter [ "writeBoundary" ] (
-    builtins.concatStringsSep "\n" cursorExtensionCommands
+    cursorExtensionCommand
   );
+  # TODO: purge unwanted extensions by listing extensions to a list, removing wanted extensions from above, then running uninstall-extension on the rest
+  # TODO: update cursor extensions after uninstall and install steps
 }
