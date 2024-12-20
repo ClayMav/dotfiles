@@ -42,6 +42,8 @@
       pkgs.monitorcontrol
       pkgs.tree-sitter
       pkgs.go
+      pkgs.air
+      pkgs.delve
 
       # Fix nix creating symlinks for applications, create aliases as well
       pkgs.mkalias

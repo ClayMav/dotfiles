@@ -5,7 +5,6 @@
   };
   homebrew.casks = [ "discord" "google-drive" "parsec" "steam" "todoist" "notion-calendar" ];
   environment.systemPackages = [
-    pkgs.delve
     pkgs.earthly
     pkgs.envconsul
     pkgs.consul
