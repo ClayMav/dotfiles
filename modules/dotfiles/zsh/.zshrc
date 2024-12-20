@@ -42,3 +42,8 @@ if [ -d ~/.aws/sso ] ; then
 fi
 
 export GITHUB_TOKEN=$(gh auth token)
+
+# Allow go executables to be run (air, etc.)
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+export PATH=$PATH:$(go env GOPATH)/bin

@@ -41,6 +41,7 @@
       pkgs.vlc-bin
       pkgs.monitorcontrol
       pkgs.tree-sitter
+      pkgs.go
 
       # Fix nix creating symlinks for applications, create aliases as well
       pkgs.mkalias
