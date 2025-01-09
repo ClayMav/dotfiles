@@ -4,13 +4,11 @@
     home = "/Users/clay";
   };
   homebrew.casks = [ "monokle" ];
-  environment.systemPackages = [
-    pkgs.zoom-us
-    pkgs.slack
-    pkgs.openvpn
-    pkgs.awscli2
-    pkgs.kubernetes-helm
-    pkgs.nix-search-cli
+  environment.systemPackages = with pkgs; [
+    zoom-us
+    slack
+    awscli2
+    kubernetes-helm
   ];
   system.defaults.dock.persistent-apps = [
     "/System/Applications/Mail.app"

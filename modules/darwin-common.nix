@@ -70,8 +70,8 @@
     };
   };
 
-  environment.systemPackages = [
-    pkgs.raycast
+  environment.systemPackages = with pkgs; [
+    raycast
   ];
 
   homebrew = {
