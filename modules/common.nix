@@ -47,7 +47,7 @@
     # Fix nix creating symlinks for applications, create aliases as well
     mkalias
     # Formatter for nix files
-    nixfmt
+    nixpkgs-fmt
     # Language server for nix
     nil
     # Search for nix packages
