@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }@inputs:
+{ nixpkgs, lib, ... }@inputs:
 let
   vscodeExtensions = [
     "redhat.vscode-yaml"

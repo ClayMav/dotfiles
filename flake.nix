@@ -1,6 +1,7 @@
 {
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs";
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     nix-darwin.url = "github:LnL7/nix-darwin";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
     nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
@@ -9,15 +10,25 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nix-homebrew, nix-darwin, nixpkgs, home-manager }@inputs:
+  outputs = { self, nix-homebrew, nix-darwin, nixpkgs, nixpkgs-unstable, home-manager }@inputs:
+    let
+      overlay-unstable = final: prev: {
+        unstable = import nixpkgs-unstable {
+          system = "aarch64-darwin";
+          config.allowUnfree = true;
+        };
+
+      };
+    in
     {
       # Build darwin flake using:
       # $ darwin-rebuild build --flake .
       darwinConfigurations = {
         "Clays-MacBook-Pro" = nix-darwin.lib.darwinSystem {
-          specialArgs = { inherit inputs; };
+          specialArgs = inputs;
           system = "aarch64-darwin";
           modules = [
+            ({ config, pkgs, ... }: { nixpkgs.overlays = [ overlay-unstable ]; })
             nix-homebrew.darwinModules.nix-homebrew
             home-manager.darwinModules.home-manager
             {
@@ -32,9 +43,10 @@
           ];
         };
         "MavBook-Pro" = nix-darwin.lib.darwinSystem {
-          specialArgs = { inherit inputs; };
+          specialArgs = inputs;
           system = "aarch64-darwin";
           modules = [
+            ({ config, pkgs, ... }: { nixpkgs.overlays = [ overlay-unstable ]; })
             nix-homebrew.darwinModules.nix-homebrew
             home-manager.darwinModules.home-manager
             {

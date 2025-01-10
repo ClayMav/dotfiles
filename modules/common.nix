@@ -1,11 +1,11 @@
-{ pkgs, ... }@inputs:
+{ pkgs, nixpkgs, ... }@inputs:
 {
   system.stateVersion = 5;
   nixpkgs.config.allowUnfree = true;
 
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
-  environment.systemPackages = with pkgs; [
+  environment.systemPackages = with pkgs.unstable; [
     vim
     neovim
     git
@@ -47,7 +47,7 @@
     # Fix nix creating symlinks for applications, create aliases as well
     mkalias
     # Formatter for nix files
-    nixpkgs-fmt
+    nixfmt
     # Language server for nix
     nil
     # Search for nix packages
@@ -58,7 +58,7 @@
 
   # Auto upgrade nix package and the daemon service.
   services.nix-daemon.enable = true;
-  # nix.package = pkgs.nix;
+  nix.package = pkgs.nix;
 
   # Necessary for using flakes on this system.
   nix.settings.experimental-features = "nix-command flakes";

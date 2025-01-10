@@ -1,4 +1,4 @@
-{ config, pkgs, self, ... }@inputs:
+{ config, nixpkgs, pkgs, self, ... }@inputs:
 {
   nix-homebrew = {
     enable = true;
@@ -70,7 +70,7 @@
     };
   };
 
-  environment.systemPackages = with pkgs; [
+  environment.systemPackages = with pkgs.unstable; [
     raycast
   ];
 

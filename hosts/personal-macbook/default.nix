@@ -4,13 +4,12 @@
     home = "/Users/clay";
   };
   homebrew.casks = [ "discord" "google-drive" "parsec" "steam" "todoist" "notion-calendar" ];
-  environment.systemPackages = with pkgs; [
+  environment.systemPackages = with pkgs.unstable; [
     earthly
     envconsul
     consul
     vault-bin
     consul-template
-    go
     discord
     nomad
     pulumi
