@@ -3,7 +3,7 @@
   users.users.clay = {
     home = "/Users/clay";
   };
-  homebrew.casks = [ "discord" "google-drive" "parsec" "steam" "todoist" "notion-calendar" ];
+  homebrew.casks = [ "discord" "google-drive" "parsec" "steam" "todoist" ];
   environment.systemPackages = with pkgs.unstable; [
     earthly
     envconsul
