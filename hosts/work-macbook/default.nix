@@ -12,7 +12,7 @@
   ];
   system.defaults.dock.persistent-apps = with pkgs.unstable; [
     "/System/Applications/Mail.app"
-    "/System/Applications/Calendar.app"
+    "/Applications/Notion Calendar.app"
     "/Applications/Notion.app"
     "${zoom-us}/Applications/zoom.us.app"
     "${slack}/Applications/Slack.app"
