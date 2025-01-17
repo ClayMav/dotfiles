@@ -82,10 +82,9 @@
     onActivation.upgrade = true;
 
     brews = [ "mas" ];
-    casks = [ "figma" "firefox" "spotify" "cursor" "docker" "shottr" "logitech-g-hub" "notion" "notion-calendar" "private-internet-access" ];
+    casks = [ "figma" "firefox" "spotify" "cursor" "docker" "shottr" "logitech-g-hub" "notion" "notion-calendar" "private-internet-access" "tailscale" ];
     masApps = {
       Bitwarden = 1352778147;
-      Tailscale = 1475387142;
     };
   };
 }

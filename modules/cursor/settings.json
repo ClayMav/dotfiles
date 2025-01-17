@@ -60,5 +60,8 @@
     "python.analysis.autoImportCompletions": true,
     "[yaml]": {
         "editor.defaultFormatter": "redhat.vscode-yaml"
+    },
+    "go.alternateTools": {
+        "go": "/run/current-system/sw/bin/go"
     }
 }
