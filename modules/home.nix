@@ -17,6 +17,7 @@ let
     "YoavBls.pretty-ts-errors"
     "enkia.tokyo-night"
     "ryanluker.vscode-coverage-gutters"
+    "ms-azuretools.vscode-docker"
   ];
   cursorExtensionCommand = "/opt/homebrew/bin/cursor " + builtins.concatStringsSep " " (builtins.map (ext: "--install-extension ${ext}") vscodeExtensions);
 in
