@@ -9,6 +9,7 @@
     slack
     awscli2
     kubernetes-helm
+    pre-commit
   ];
   system.defaults.dock.persistent-apps = with pkgs.unstable; [
     "/System/Applications/Mail.app"
