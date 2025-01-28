@@ -16,6 +16,7 @@
     stripe-cli
     terraform
     turso-cli
+    rustup
     # parsec
     # steam
     # todoist-electron
