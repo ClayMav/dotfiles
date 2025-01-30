@@ -19,17 +19,15 @@ let
     "ryanluker.vscode-coverage-gutters"
     "ms-azuretools.vscode-docker"
   ];
-  cursorExtensionCommand = "/opt/homebrew/bin/cursor " + builtins.concatStringsSep " " (builtins.map (ext: "--install-extension ${ext}") vscodeExtensions);
-in
-{
+  cursorExtensionCommand = "/opt/homebrew/bin/cursor "
+    + builtins.concatStringsSep " "
+    (builtins.map (ext: "--install-extension ${ext}") vscodeExtensions);
+in {
   # this is internal compatibility configuration 
   # for home-manager, don't change this!
   home.stateVersion = "24.05";
 
-  home.sessionVariables = {
-    EDITOR = "vim";
-  };
-
+  home.sessionVariables = { EDITOR = "vim"; };
 
   programs = {
     home-manager.enable = true;
@@ -65,11 +63,7 @@ in
       userName = "Clay McGinnis";
       userEmail = "github@clay.sh";
 
-      ignores = [
-        ".DS_Store"
-        "*.sw?"
-        ".attach_pid*"
-      ];
+      ignores = [ ".DS_Store" "*.sw?" ".attach_pid*" ];
 
       extraConfig = {
         core = {
@@ -84,17 +78,18 @@ in
     vscode = {
       enable = true;
       # extensions = with pkgs.vscode-extensions; vscodeExtensions;
-      userSettings = builtins.fromJSON (builtins.readFile ./cursor/settings.json);
+      userSettings =
+        builtins.fromJSON (builtins.readFile ./cursor/settings.json);
     };
     # TODO: add tmux
     # TODO: add vim
   };
   # Cursor settings
-  home.file."/Users/clay/Library/Application Support/Cursor/User/settings.json".source = ./cursor/settings.json;
+  home.file."/Users/clay/Library/Application Support/Cursor/User/settings.json".source =
+    ./cursor/settings.json;
   # Cursor extensions
-  home.activation.cursorExtensions = lib.hm.dag.entryAfter [ "writeBoundary" ] (
-    cursorExtensionCommand
-  );
+  home.activation.cursorExtensions =
+    lib.hm.dag.entryAfter [ "writeBoundary" ] (cursorExtensionCommand);
   # TODO: purge unwanted extensions by listing extensions to a list, removing wanted extensions from above, then running uninstall-extension on the rest
   # TODO: update cursor extensions after uninstall and install steps
 }

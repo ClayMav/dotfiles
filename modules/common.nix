@@ -1,5 +1,4 @@
-{ pkgs, nixpkgs, ... }@inputs:
-{
+{ pkgs, nixpkgs, ... }@inputs: {
   system.stateVersion = 5;
   nixpkgs.config.allowUnfree = true;
 
@@ -47,9 +46,9 @@
     # Fix nix creating symlinks for applications, create aliases as well
     mkalias
     # Formatter for nix files
-    nixpkgs-fmt
+    nixfmt
     # Language server for nix
-    nil
+    nixd
     # Search for nix packages
     nix-search-cli
     # Wishlist

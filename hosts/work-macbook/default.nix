@@ -1,8 +1,5 @@
-{ pkgs, ... }@inputs:
-{
-  users.users.clay = {
-    home = "/Users/clay";
-  };
+{ pkgs, ... }@inputs: {
+  users.users.clay = { home = "/Users/clay"; };
   homebrew.casks = [ "monokle" ];
   environment.systemPackages = with pkgs.unstable; [
     zoom-us
