@@ -23,7 +23,7 @@
     "/Applications/Todoist.app"
     "/Applications/Notion.app"
     "/Applications/Notion Calendar.app"
-    "/Applications/Brave Browser.app"
+    "/Applications/Zen Browser.app"
     "/Applications/Cursor.app"
   ];
 }

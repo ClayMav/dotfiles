@@ -14,7 +14,7 @@
     "/Applications/Notion.app"
     "${zoom-us}/Applications/zoom.us.app"
     "${slack}/Applications/Slack.app"
-    "/Applications/Brave Browser.app"
+    "/Applications/Zen Browser.app"
     "/Applications/Cursor.app"
   ];
 }

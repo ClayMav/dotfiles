@@ -18,7 +18,6 @@
     wezterm
     google-chrome
     #   spotify
-    docker
     jetbrains.datagrip
     inkscape
     gimp
