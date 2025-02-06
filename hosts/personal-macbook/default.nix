@@ -9,7 +9,8 @@
     consul-template
     discord
     nomad
-    pulumi
+    pulumi-bin
+    pulumiPackages.pulumi-language-nodejs
     stripe-cli
     terraform
     turso-cli
