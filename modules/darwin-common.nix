@@ -87,7 +87,7 @@
       "notion-calendar"
       "private-internet-access"
       "tailscale"
-      "zen-browser"
+      "vivaldi"
     ];
     masApps = { Bitwarden = 1352778147; };
   };

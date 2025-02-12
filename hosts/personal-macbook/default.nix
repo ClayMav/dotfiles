@@ -24,7 +24,7 @@
     "/Applications/Todoist.app"
     "/Applications/Notion.app"
     "/Applications/Notion Calendar.app"
-    "/Applications/Zen Browser.app"
+    "/Applications/Vivaldi.app"
     "/Applications/Cursor.app"
   ];
 }

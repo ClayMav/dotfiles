@@ -19,7 +19,7 @@
     "/Applications/Notion.app"
     "/Applications/zoom.us.app"
     "/Applications/Slack.app"
-    "/Applications/Zen Browser.app"
+    "/Applications/Vivaldi.app"
     "/Applications/Cursor.app"
   ];
 }
