@@ -16,12 +16,6 @@ function command_exists() {
   hash "$1" 2> /dev/null;
 }
 
-# fnm
-if command_exists fnm ; then
-    export PATH="/Users/clay/Library/Application Support/fnm:$PATH"
-    eval "`fnm env`"
-fi
-
 function cd {
     builtin cd $argv
     ls

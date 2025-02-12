@@ -1,4 +1,5 @@
-{ pkgs, nixpkgs, ... }@inputs: {
+{ pkgs, nixpkgs, ... }@inputs:
+{
   system.stateVersion = 5;
   nixpkgs.config.allowUnfree = true;
 
@@ -10,7 +11,6 @@
     git
     zsh
     tmux
-    fnm
     gh
     bun
     curl
@@ -41,6 +41,9 @@
     go
     air
     delve
+    yarn
+    nodejs_22
+    corepack_22
 
     # Fix nix creating symlinks for applications, create aliases as well
     mkalias
