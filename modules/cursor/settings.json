@@ -63,5 +63,6 @@
     },
     "go.alternateTools": {
         "go": "/run/current-system/sw/bin/go"
-    }
+    },
+    "makefile.configureOnOpen": false
 }

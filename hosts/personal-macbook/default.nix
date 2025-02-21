@@ -1,6 +1,6 @@
 { pkgs, ... }@inputs: {
   users.users.clay = { home = "/Users/clay"; };
-  homebrew.casks = [ "discord" "google-drive" "parsec" "steam" "todoist" ];
+  homebrew.casks = [ "discord" "google-drive" "parsec" "steam" "todoist" "calibre" ];
   environment.systemPackages = with pkgs.unstable; [
     earthly
     envconsul
