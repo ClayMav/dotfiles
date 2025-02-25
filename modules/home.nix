@@ -19,15 +19,18 @@ let
     "ryanluker.vscode-coverage-gutters"
     "ms-azuretools.vscode-docker"
   ];
-  cursorExtensionCommand = "/opt/homebrew/bin/cursor "
-    + builtins.concatStringsSep " "
-    (builtins.map (ext: "--install-extension ${ext}") vscodeExtensions);
-in {
-  # this is internal compatibility configuration 
+  cursorExtensionCommand =
+    "/opt/homebrew/bin/cursor "
+    + builtins.concatStringsSep " " (builtins.map (ext: "--install-extension ${ext}") vscodeExtensions);
+in
+{
+  # this is internal compatibility configuration
   # for home-manager, don't change this!
   home.stateVersion = "24.05";
 
-  home.sessionVariables = { EDITOR = "vim"; };
+  home.sessionVariables = {
+    EDITOR = "vim";
+  };
 
   programs = {
     home-manager.enable = true;
@@ -54,7 +57,11 @@ in {
       };
       oh-my-zsh = {
         enable = true;
-        plugins = [ "git" "docker" "tmux" ];
+        plugins = [
+          "git"
+          "docker"
+          "tmux"
+        ];
         theme = "robbyrussell";
       };
     };
@@ -63,23 +70,79 @@ in {
       userName = "Clay McGinnis";
       userEmail = "github@clay.sh";
 
-      ignores = [ ".DS_Store" "*.sw?" ".attach_pid*" ];
+      ignores = [
+        ".DS_Store"
+        "*.sw?"
+        ".attach_pid*"
+      ];
 
       extraConfig = {
         core = {
           excludesfile = "~/.gitignore";
           autocrlf = "input";
+          fsmonitor = true;
+          untrackedCache = true;
         };
-        pull = { rebase = true; };
-        push = { autoSetupRemote = true; };
-        log = { date = "local"; };
+
+        column = {
+          ui = "auto";
+        };
+        branch = {
+          sort = "-committerdate";
+        };
+        tag = {
+          sort = "version:refname";
+        };
+        init = {
+          defaultBranch = "main";
+        };
+        diff = {
+          algorithm = "histogram";
+          colorMoved = "plain";
+          mnemonicPrefix = true;
+          renames = true;
+        };
+        push = {
+          default = "simple";
+          autoSetupRemote = true;
+          followTags = true;
+        };
+        fetch = {
+          prune = true;
+          pruneTags = true;
+          all = true;
+        };
+        help = {
+          autoCorrect = "prompt";
+        };
+        commit = {
+          verbose = true;
+        };
+        rerere = {
+          enabled = true;
+          autoUpdate = true;
+        };
+        rebase = {
+          autoSquash = true;
+          autoStash = true;
+          updateRefs = true;
+        };
+        merge = {
+          conflictStyle = "zdiff3";
+        };
+
+        pull = {
+          rebase = true;
+        };
+        log = {
+          date = "local";
+        };
       };
     };
     vscode = {
       enable = true;
       # extensions = with pkgs.vscode-extensions; vscodeExtensions;
-      userSettings =
-        builtins.fromJSON (builtins.readFile ./cursor/settings.json);
+      userSettings = builtins.fromJSON (builtins.readFile ./cursor/settings.json);
     };
     # TODO: add tmux
     # TODO: add vim
@@ -88,8 +151,9 @@ in {
   home.file."/Users/clay/Library/Application Support/Cursor/User/settings.json".source =
     ./cursor/settings.json;
   # Cursor extensions
-  home.activation.cursorExtensions =
-    lib.hm.dag.entryAfter [ "writeBoundary" ] (cursorExtensionCommand);
+  home.activation.cursorExtensions = lib.hm.dag.entryAfter [ "writeBoundary" ] (
+    cursorExtensionCommand
+  );
   # TODO: purge unwanted extensions by listing extensions to a list, removing wanted extensions from above, then running uninstall-extension on the rest
   # TODO: update cursor extensions after uninstall and install steps
 }
