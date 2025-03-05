@@ -142,7 +142,7 @@ in
     vscode = {
       enable = true;
       # extensions = with pkgs.vscode-extensions; vscodeExtensions;
-      userSettings = builtins.fromJSON (builtins.readFile ./cursor/settings.json);
+      profiles.default.userSettings = builtins.fromJSON (builtins.readFile ./cursor/settings.json);
     };
     # TODO: add tmux
     # TODO: add vim

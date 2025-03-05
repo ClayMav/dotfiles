@@ -48,7 +48,7 @@
   # Create /etc/zshrc that loads the nix-darwin environment.
   programs.zsh.enable = true; # default shell on catalina
   # programs.fish.enable = true;
-  security.pam.enableSudoTouchIdAuth = true;
+  security.pam.services.sudo_local.touchIdAuth = true;
 
   users.users.clay = {
     home = "/Users/clay";
