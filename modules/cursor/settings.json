@@ -64,5 +64,6 @@
     "go.alternateTools": {
         "go": "/run/current-system/sw/bin/go"
     },
-    "makefile.configureOnOpen": false
+    "makefile.configureOnOpen": false,
+    "diffEditor.ignoreTrimWhitespace": false
 }
