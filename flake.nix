@@ -4,14 +4,21 @@
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     nix-darwin.url = "github:LnL7/nix-darwin";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
-    nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
+    nix-homebrew.url = "git+https://github.com/zhaofengli/nix-homebrew?ref=refs/pull/71/merge";
     nix-homebrew.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nix-homebrew, nix-darwin, nixpkgs, nixpkgs-unstable
-    , home-manager }@inputs:
+  outputs =
+    {
+      self,
+      nix-homebrew,
+      nix-darwin,
+      nixpkgs,
+      nixpkgs-unstable,
+      home-manager,
+    }@inputs:
     let
       overlay-unstable = final: prev: {
         unstable = import nixpkgs-unstable {
@@ -20,7 +27,8 @@
         };
 
       };
-    in {
+    in
+    {
       # Build darwin flake using:
       # $ darwin-rebuild build --flake .
       darwinConfigurations = {
@@ -28,9 +36,12 @@
           specialArgs = inputs;
           system = "aarch64-darwin";
           modules = [
-            ({ config, pkgs, ... }: {
-              nixpkgs.overlays = [ overlay-unstable ];
-            })
+            (
+              { config, pkgs, ... }:
+              {
+                nixpkgs.overlays = [ overlay-unstable ];
+              }
+            )
             nix-homebrew.darwinModules.nix-homebrew
             home-manager.darwinModules.home-manager
             {
@@ -48,9 +59,12 @@
           specialArgs = inputs;
           system = "aarch64-darwin";
           modules = [
-            ({ config, pkgs, ... }: {
-              nixpkgs.overlays = [ overlay-unstable ];
-            })
+            (
+              { config, pkgs, ... }:
+              {
+                nixpkgs.overlays = [ overlay-unstable ];
+              }
+            )
             nix-homebrew.darwinModules.nix-homebrew
             home-manager.darwinModules.home-manager
             {
