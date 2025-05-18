@@ -27,6 +27,7 @@ in
   # this is internal compatibility configuration
   # for home-manager, don't change this!
   home.stateVersion = "24.05";
+  home.enableNixpkgsReleaseCheck = false;
 
   home.sessionVariables = {
     EDITOR = "vim";
@@ -44,7 +45,7 @@ in
       enableCompletion = true;
       autosuggestion.enable = true;
       syntaxHighlighting.enable = true;
-      initExtra = builtins.readFile ./dotfiles/zsh/.zshrc;
+      initContent = builtins.readFile ./dotfiles/zsh/.zshrc;
 
       shellAliases = {
         vim = "nvim";

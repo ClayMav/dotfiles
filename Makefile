@@ -1,5 +1,5 @@
 .PHONY: upgrade
 upgrade:
-	darwin-rebuild switch --flake .
+	sudo darwin-rebuild switch --flake .
 update:
 	nix flake update

@@ -1,4 +1,5 @@
 { pkgs, ... }@inputs: {
+  system.primaryUser = "clay";
   users.users.clay = { home = "/Users/clay"; };
   homebrew.casks = [ "discord" "google-drive" "parsec" "steam" "todoist" "calibre" ];
   environment.systemPackages = with pkgs.unstable; [
@@ -10,7 +11,7 @@
     discord
     nomad
     pulumi-bin
-    pulumiPackages.pulumi-language-nodejs
+    pulumiPackages.pulumi-nodejs
     stripe-cli
     terraform
     turso-cli
