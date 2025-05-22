@@ -1,6 +1,7 @@
 { pkgs, nixpkgs, ... }@inputs:
 {
   system.stateVersion = 5;
+  system.primaryUser = "clay";
   nixpkgs.config.allowUnfree = true;
 
   # List packages installed in system profile. To search by name, run:

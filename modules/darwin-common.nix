@@ -6,6 +6,7 @@
   ...
 }@inputs:
 {
+  system.primaryUser = "clay";
   nix-homebrew = {
     enable = true;
     enableRosetta = true;
