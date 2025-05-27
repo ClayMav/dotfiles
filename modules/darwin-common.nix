@@ -97,6 +97,7 @@
       "logitech-g-hub"
       "notion"
       "notion-calendar"
+      "notion-mail"
       "private-internet-access"
       "tailscale"
       "vivaldi"

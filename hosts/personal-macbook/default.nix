@@ -16,6 +16,7 @@
     terraform
     turso-cli
     rustup
+    cargo-binstall
     # parsec
     # steam
     # todoist-electron

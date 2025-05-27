@@ -66,5 +66,8 @@
     },
     "makefile.configureOnOpen": false,
     "diffEditor.ignoreTrimWhitespace": false,
-    "go.toolsManagement.autoUpdate": true
+    "go.toolsManagement.autoUpdate": true,
+    "rust-analyzer.cargo.extraEnv": {
+        "MACOSX_DEPLOYMENT_TARGET": "10.13"
+    }
 }
