@@ -46,6 +46,7 @@
     nodejs_22
     corepack_22
     fnm
+    pipx
 
     # Fix nix creating symlinks for applications, create aliases as well
     mkalias
