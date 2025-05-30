@@ -69,5 +69,9 @@
     "go.toolsManagement.autoUpdate": true,
     "rust-analyzer.cargo.extraEnv": {
         "MACOSX_DEPLOYMENT_TARGET": "10.13"
-    }
+    },
+    "terminal.integrated.automationProfile.osx": {
+        "path": "zsh"
+    },
+    "security.promptForLocalFileProtocolHandling": false
 }
