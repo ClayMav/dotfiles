@@ -18,11 +18,9 @@
     wget
     wezterm
     google-chrome
-    #   spotify
     jetbrains.datagrip
     inkscape
     gimp
-    tailscale
     ripgrep
     nodePackages.localtunnel
     fzf

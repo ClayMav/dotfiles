@@ -86,7 +86,10 @@
     onActivation.autoUpdate = true;
     onActivation.upgrade = true;
 
-    brews = [ "mas" ];
+    brews = [
+      "mas"
+      "bitwarden-cli"
+    ];
     casks = [
       "figma"
       "firefox"

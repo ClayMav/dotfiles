@@ -36,13 +36,13 @@
           specialArgs = inputs;
           system = "aarch64-darwin";
           modules = [
+            nix-homebrew.darwinModules.nix-homebrew
             (
               { config, pkgs, ... }:
               {
                 nixpkgs.overlays = [ overlay-unstable ];
               }
             )
-            nix-homebrew.darwinModules.nix-homebrew
             home-manager.darwinModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
@@ -59,13 +59,13 @@
           specialArgs = inputs;
           system = "aarch64-darwin";
           modules = [
+            nix-homebrew.darwinModules.nix-homebrew
             (
               { config, pkgs, ... }:
               {
                 nixpkgs.overlays = [ overlay-unstable ];
               }
             )
-            nix-homebrew.darwinModules.nix-homebrew
             home-manager.darwinModules.home-manager
             {
               home-manager.useGlobalPkgs = true;

@@ -1,4 +1,7 @@
-{ nixpkgs, lib, ... }@inputs:
+{
+  lib,
+  ...
+}@inputs:
 let
   vscodeExtensions = [
     "redhat.vscode-yaml"
@@ -155,6 +158,11 @@ in
   home.activation.cursorExtensions = lib.hm.dag.entryAfter [ "writeBoundary" ] (
     cursorExtensionCommand
   );
+  # Cursor Rules
+  home.file.".cursor/rules" = {
+    source = ./cursor/rules;
+    recursive = true;
+  };
   # TODO: purge unwanted extensions by listing extensions to a list, removing wanted extensions from above, then running uninstall-extension on the rest
   # TODO: update cursor extensions after uninstall and install steps
 }
