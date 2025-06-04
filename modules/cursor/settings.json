@@ -71,7 +71,16 @@
         "MACOSX_DEPLOYMENT_TARGET": "10.13"
     },
     "terminal.integrated.automationProfile.osx": {
-        "path": "zsh"
+        "path": "/etc/profiles/per-user/clay/bin/zsh"
     },
+    "terminal.integrated.profiles.osx": {
+        "nix-zsh": {
+            "path": "/etc/profiles/per-user/clay/bin/zsh",
+            "args": [
+                "-l"
+            ]
+        }
+    },
+    "terminal.integrated.defaultProfile.osx": "nix-zsh",
     "security.promptForLocalFileProtocolHandling": false
 }
