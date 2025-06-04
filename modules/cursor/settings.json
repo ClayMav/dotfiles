@@ -82,5 +82,6 @@
         }
     },
     "terminal.integrated.defaultProfile.osx": "nix-zsh",
-    "security.promptForLocalFileProtocolHandling": false
+    "security.promptForLocalFileProtocolHandling": false,
+    "python.terminal.activateEnvironment": false
 }
