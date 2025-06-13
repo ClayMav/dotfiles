@@ -87,6 +87,8 @@
     onActivation.upgrade = true;
 
     brews = [
+      "colima"
+      "lima-additional-guestagents"
       "mas"
       "bitwarden-cli"
     ];
