@@ -14,7 +14,7 @@
     pre-commit
   ];
   system.defaults.dock.persistent-apps = with pkgs.unstable; [
-    "/System/Applications/Mail.app"
+    "/Applications/Spark.app"
     "/Applications/Notion Calendar.app"
     "/Applications/Notion.app"
     "/Applications/zoom.us.app"

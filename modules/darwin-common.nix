@@ -91,13 +91,13 @@
       "lima-additional-guestagents"
       "mas"
       "bitwarden-cli"
+      "docker"
     ];
     casks = [
       "figma"
       "firefox"
       "spotify"
       "cursor"
-      "docker"
       "shottr"
       "logitech-g-hub"
       "notion"
@@ -107,6 +107,7 @@
       "tailscale"
       "vivaldi"
       "yaak"
+      "readdle-spark"
     ];
     masApps = {
       Bitwarden = 1352778147;
