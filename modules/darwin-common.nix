@@ -104,7 +104,7 @@
       "notion-calendar"
       "notion-mail"
       "private-internet-access"
-      "tailscale"
+      "tailscale-app"
       "vivaldi"
       "yaak"
       "readdle-spark"

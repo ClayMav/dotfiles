@@ -1,14 +1,13 @@
 { pkgs, ... }@inputs: {
   system.primaryUser = "clay";
   users.users.clay = { home = "/Users/clay"; };
-  homebrew.casks = [ "discord" "google-drive" "parsec" "steam" "todoist" "calibre" ];
+  homebrew.casks = [ "discord" "google-drive" "parsec" "steam" "todoist-app" "calibre" ];
   environment.systemPackages = with pkgs.unstable; [
     earthly
     envconsul
     consul
     vault-bin
     consul-template
-    discord
     nomad
     pulumi-bin
     pulumiPackages.pulumi-nodejs

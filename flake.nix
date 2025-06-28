@@ -43,6 +43,9 @@
                 nixpkgs.overlays = [ overlay-unstable ];
               }
             )
+            ./hosts/work-macbook/default.nix
+            ./modules/common.nix
+            ./modules/darwin-common.nix
             home-manager.darwinModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
@@ -50,9 +53,6 @@
               home-manager.users.clay = import ./modules/home.nix;
               home-manager.backupFileExtension = "backup";
             }
-            ./modules/common.nix
-            ./modules/darwin-common.nix
-            ./hosts/work-macbook/default.nix
           ];
         };
         "MavBook-Pro" = nix-darwin.lib.darwinSystem {
@@ -66,6 +66,9 @@
                 nixpkgs.overlays = [ overlay-unstable ];
               }
             )
+            ./hosts/personal-macbook/default.nix
+            ./modules/common.nix
+            ./modules/darwin-common.nix
             home-manager.darwinModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
@@ -73,9 +76,6 @@
               home-manager.users.clay = import ./modules/home.nix;
               home-manager.backupFileExtension = "backup";
             }
-            ./modules/common.nix
-            ./modules/darwin-common.nix
-            ./hosts/personal-macbook/default.nix
           ];
         };
       };
