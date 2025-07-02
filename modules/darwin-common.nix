@@ -90,7 +90,6 @@
       "colima"
       "lima-additional-guestagents"
       "mas"
-      "bitwarden-cli"
       "docker"
     ];
     casks = [
@@ -108,6 +107,7 @@
       "vivaldi"
       "yaak"
       "readdle-spark"
+      "google-chrome"
     ];
     masApps = {
       Bitwarden = 1352778147;

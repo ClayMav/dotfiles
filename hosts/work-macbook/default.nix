@@ -12,6 +12,7 @@
     awscli2
     kubernetes-helm
     pre-commit
+    kubectl
   ];
   system.defaults.dock.persistent-apps = with pkgs.unstable; [
     "/Applications/Spark Desktop.app"
