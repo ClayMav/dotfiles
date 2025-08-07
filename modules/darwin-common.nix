@@ -91,6 +91,8 @@
       "lima-additional-guestagents"
       "mas"
       "docker"
+      "docker-compose"
+      "gemini-cli"
     ];
     casks = [
       "figma"
