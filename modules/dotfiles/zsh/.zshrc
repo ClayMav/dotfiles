@@ -43,3 +43,5 @@ export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 export PATH=$PATH:$(go env GOPATH)/bin
 export PATH=$PATH:$HOME/.local/bin
 export DOCKER_HOST="unix://${HOME}/.colima/default/docker.sock" 
+# export GOOGLE_CLOUD_PROJECT=gen-lang-client-0736335726 # Wherobots project
+export PATH="/Users/clay/.bun/bin:$PATH" # Bun

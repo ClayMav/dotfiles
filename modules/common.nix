@@ -45,7 +45,7 @@
     corepack_22
     fnm
     pipx
-    gemini-cli
+    # gemini-cli # TOO SLOW TO UPDATE
 
     # Fix nix creating symlinks for applications, create aliases as well
     mkalias
