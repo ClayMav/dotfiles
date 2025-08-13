@@ -111,6 +111,7 @@
       "readdle-spark"
       "google-chrome"
       "vlc"
+      "cursor-cli"
     ];
     masApps = {
       Bitwarden = 1352778147;
