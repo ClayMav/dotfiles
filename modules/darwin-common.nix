@@ -112,6 +112,7 @@
       "google-chrome"
       "vlc"
       "cursor-cli"
+      "chatgpt"
     ];
     masApps = {
       Bitwarden = 1352778147;
