@@ -45,6 +45,7 @@
     corepack_22
     fnm
     pipx
+    # dotagent
     # gemini-cli # TOO SLOW TO UPDATE
 
     # Fix nix creating symlinks for applications, create aliases as well

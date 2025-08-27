@@ -25,6 +25,7 @@ let
   cursorExtensionCommand =
     "/opt/homebrew/bin/cursor "
     + builtins.concatStringsSep " " (builtins.map (ext: "--install-extension ${ext}") vscodeExtensions);
+  secrets = import ../secrets.nix { };
 in
 {
   # this is internal compatibility configuration
@@ -48,7 +49,15 @@ in
       enableCompletion = true;
       autosuggestion.enable = true;
       syntaxHighlighting.enable = true;
-      initContent = builtins.readFile ./dotfiles/zsh/.zshrc;
+      initContent =
+        let
+          zshConfig = lib.mkOrder 1000 (builtins.readFile ./dotfiles/zsh/.zshrc);
+          zshConfigLateInit = lib.mkOrder 1500 "[ -r \"$HOME/.config/private/zsh.secrets\" ] && source \"$HOME/.config/private/secrets.sh\"";
+        in
+        lib.mkMerge [
+          zshConfig
+          zshConfigLateInit
+        ];
 
       shellAliases = {
         vim = "nvim";

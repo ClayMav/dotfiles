@@ -47,7 +47,7 @@
     '';
 
   # Create /etc/zshrc that loads the nix-darwin environment.
-  programs.zsh.enable = true; # default shell on catalina
+  programs.zsh.enable = true;
   # programs.fish.enable = true;
   security.pam.services.sudo_local.touchIdAuth = true;
 
@@ -87,7 +87,7 @@
     onActivation.upgrade = true;
 
     brews = [
-      "colima"
+      {"name" = "colima"; "start_service" = true;}
       "lima-additional-guestagents"
       "mas"
       "docker"
