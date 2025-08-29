@@ -87,7 +87,10 @@
     onActivation.upgrade = true;
 
     brews = [
-      {"name" = "colima"; "start_service" = true;}
+      {
+        "name" = "colima";
+        "start_service" = true;
+      }
       "lima-additional-guestagents"
       "mas"
       "docker"

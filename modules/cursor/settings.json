@@ -83,5 +83,7 @@
     },
     "terminal.integrated.defaultProfile.osx": "nix-zsh",
     "security.promptForLocalFileProtocolHandling": false,
-    "python.terminal.activateEnvironment": false
+    "python.terminal.activateEnvironment": false,
+    "cursor.cpp.disabledLanguages": [],
+    "json.schemaDownload.enable": true
 }
