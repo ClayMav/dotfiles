@@ -52,7 +52,7 @@ in
       initContent =
         let
           zshConfig = lib.mkOrder 1000 (builtins.readFile ./dotfiles/zsh/.zshrc);
-          zshConfigLateInit = lib.mkOrder 1500 "[ -r \"$HOME/.config/private/zsh.secrets\" ] && source \"$HOME/.config/private/secrets.sh\"";
+          zshConfigLateInit = lib.mkOrder 1500 "[ -r \"$HOME/.config/private/secrets.sh\" ] && source \"$HOME/.config/private/secrets.sh\"";
         in
         lib.mkMerge [
           zshConfig
