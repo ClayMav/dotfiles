@@ -15,7 +15,7 @@
     kubectl
   ];
   system.defaults.dock.persistent-apps = with pkgs.unstable; [
-    "/Applications/Spark Desktop.app"
+    "/Applications/Mail.app"
     "/Applications/Notion Calendar.app"
     "/Applications/Notion.app"
     "/Applications/zoom.us.app"

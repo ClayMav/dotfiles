@@ -112,7 +112,7 @@
       "vivaldi" # Primary browser
       "yaak"
       "google-chrome" # Backup browser
-      "vlc"
+      # "vlc"
       "chatgpt"
       "zed"
     ];
