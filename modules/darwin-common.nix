@@ -99,7 +99,7 @@
     ];
     casks = [
       "figma"
-      "firefox"
+      "firefox" # Backup browser
       "spotify"
       "cursor"
       "shottr"
@@ -109,13 +109,12 @@
       "notion-mail"
       "private-internet-access"
       "tailscale-app"
-      "vivaldi"
+      "vivaldi" # Primary browser
       "yaak"
-      "readdle-spark"
-      "google-chrome"
+      "google-chrome" # Backup browser
       "vlc"
-      "cursor-cli"
       "chatgpt"
+      "zed"
     ];
     masApps = {
       Bitwarden = 1352778147;
