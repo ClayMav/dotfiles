@@ -152,11 +152,11 @@ in
         };
       };
     };
-    vscode = {
-      enable = true;
-      # extensions = with pkgs.vscode-extensions; vscodeExtensions;
-      profiles.default.userSettings = builtins.fromJSON (builtins.readFile ./cursor/settings.json);
-    };
+    # vscode = {
+    #   enable = true;
+    #   # extensions = with pkgs.vscode-extensions; vscodeExtensions;
+    #   profiles.default.userSettings = builtins.fromJSON (builtins.readFile ./cursor/settings.json);
+    # };
     # TODO: add tmux
     # TODO: add vim
   };
