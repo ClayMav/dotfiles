@@ -1,7 +1,25 @@
 { pkgs, ... }@inputs: {
   system.primaryUser = "clay";
-  users.users.clay = { home = "/Users/clay"; };
-  homebrew.casks = [ "discord" "google-drive" "parsec" "steam" "todoist-app" "calibre" ];
+
+  users.users.clay = {
+    home = "/Users/clay";
+  };
+
+  homebrew.casks = [
+    "discord"
+    "google-drive"
+    "parsec"
+    "steam"
+    "todoist-app"
+    "crossover"
+    "whatsapp"
+    "gcs"
+    "garmin-express"
+  ];
+  homebrew.masApps = {
+    DaisyDisk = 411643860;
+  };
+
   environment.systemPackages = with pkgs.unstable; [
     earthly
     envconsul
@@ -20,6 +38,7 @@
     # steam
     # todoist-electron
   ];
+
   system.defaults.dock.persistent-apps = [
     "/Applications/Discord.app"
     "/Applications/Todoist.app"
