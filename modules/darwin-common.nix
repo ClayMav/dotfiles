@@ -115,6 +115,7 @@
       # "vlc"
       "chatgpt"
       "zed"
+      "sleep-aid"
     ];
     masApps = {
       Bitwarden = 1352778147;
