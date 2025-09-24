@@ -106,7 +106,6 @@
       "logitech-g-hub"
       "notion"
       "notion-calendar"
-      "notion-mail"
       "private-internet-access"
       "tailscale-app"
       "vivaldi" # Primary browser
@@ -114,8 +113,9 @@
       "google-chrome" # Backup browser
       # "vlc"
       "chatgpt"
-      "zed"
+      #   "zed"
       "sleep-aid"
+      "ghostty"
     ];
     masApps = {
       Bitwarden = 1352778147;

@@ -15,12 +15,14 @@
     kubectl
   ];
   system.defaults.dock.persistent-apps = with pkgs.unstable; [
-    "/System/Applications/Mail.app"
+    "/Applications/Vivaldi.app"
     "/Applications/Notion Calendar.app"
     "/Applications/Notion.app"
+    "/Applications/Cursor.app"
+    "/Applications/Sleep Aid.app"
+    "/Applications/ChatGPT.app"
+    "/System/Applications/Mail.app"
     "/Applications/zoom.us.app"
     "/Applications/Slack.app"
-    "/Applications/Vivaldi.app"
-    "/Applications/Cursor.app"
   ];
 }

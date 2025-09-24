@@ -1,4 +1,5 @@
-{ pkgs, ... }@inputs: {
+{ pkgs, ... }@inputs:
+{
   system.primaryUser = "clay";
 
   users.users.clay = {
@@ -36,15 +37,15 @@
     cargo-binstall
     # parsec
     # steam
-    # todoist-electron
   ];
 
   system.defaults.dock.persistent-apps = [
-    "/Applications/Discord.app"
-    "/Applications/Todoist.app"
-    "/Applications/Notion.app"
-    "/Applications/Notion Calendar.app"
     "/Applications/Vivaldi.app"
+    "/Applications/Notion Calendar.app"
+    "/Applications/Notion.app"
     "/Applications/Cursor.app"
+    "/Applications/Sleep Aid.app"
+    "/Applications/ChatGPT.app"
+    "/Applications/Discord.app"
   ];
 }
