@@ -7,6 +7,7 @@
     "monokle"
     "zoom"
     "slack"
+    "visual-studio-code"
   ];
   environment.systemPackages = with pkgs.unstable; [
     awscli2
