@@ -53,6 +53,7 @@
 
   users.users.clay = {
     home = "/Users/clay";
+    shell = pkgs.zsh;
   };
 
   system.defaults = {

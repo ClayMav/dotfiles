@@ -16,6 +16,7 @@
     "whatsapp"
     "gcs"
     "garmin-express"
+    "android-platform-tools"
   ];
   homebrew.masApps = {
     DaisyDisk = 411643860;
@@ -46,6 +47,5 @@
     "/Applications/Cursor.app"
     "/Applications/Sleep Aid.app"
     "/Applications/ChatGPT.app"
-    "/Applications/Discord.app"
   ];
 }
