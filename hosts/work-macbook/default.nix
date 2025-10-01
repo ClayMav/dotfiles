@@ -25,5 +25,10 @@
     "/System/Applications/Mail.app"
     "/Applications/zoom.us.app"
     "/Applications/Slack.app"
+    {
+      spacer = {
+        small = true;
+      };
+    }
   ];
 }

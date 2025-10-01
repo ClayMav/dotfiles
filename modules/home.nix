@@ -162,16 +162,18 @@ in
   };
   # Cursor settings
   home.file."/Users/clay/Library/Application Support/Cursor/User/settings.json".source =
-    ./cursor/settings.json;
+    ./dotfiles/cursor/settings.json;
   # Cursor extensions
   home.activation.cursorExtensions = lib.hm.dag.entryAfter [ "writeBoundary" ] (
     cursorExtensionCommand
   );
   # Cursor Rules
   home.file.".cursor/rules" = {
-    source = ./cursor/rules;
+    source = ./dotfiles/cursor/rules;
     recursive = true;
   };
+  # Colima config
+  home.file."/Users/clay/.colima/_templates/default.yaml".source = ./dotfiles/colima/default.yaml;
   # TODO: purge unwanted extensions by listing extensions to a list, removing wanted extensions from above, then running uninstall-extension on the rest
   # TODO: update cursor extensions after uninstall and install steps
 }
