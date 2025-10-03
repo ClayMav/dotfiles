@@ -86,5 +86,11 @@
     "python.terminal.activateEnvironment": false,
     "cursor.cpp.disabledLanguages": [],
     "json.schemaDownload.enable": true,
-    "cursor.enable_git_worktrees_setting": true
+    "cursor.enable_git_worktrees_setting": true,
+    "[dockercompose]": {
+        "editor.insertSpaces": true,
+        "editor.tabSize": 2,
+        "editor.autoIndent": "advanced",
+        "editor.defaultFormatter": "redhat.vscode-yaml"
+    }
 }
