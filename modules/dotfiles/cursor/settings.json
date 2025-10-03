@@ -85,5 +85,6 @@
     "security.promptForLocalFileProtocolHandling": false,
     "python.terminal.activateEnvironment": false,
     "cursor.cpp.disabledLanguages": [],
-    "json.schemaDownload.enable": true
+    "json.schemaDownload.enable": true,
+    "cursor.enable_git_worktrees_setting": true
 }

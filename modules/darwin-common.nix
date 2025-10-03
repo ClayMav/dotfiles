@@ -117,6 +117,7 @@
       #   "zed"
       "sleep-aid"
       "ghostty"
+      "font-codicon"
     ];
     masApps = {
       Bitwarden = 1352778147;
