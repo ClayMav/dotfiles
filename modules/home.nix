@@ -21,9 +21,17 @@ let
     "enkia.tokyo-night"
     "ryanluker.vscode-coverage-gutters"
     "ms-azuretools.vscode-docker"
+    "google.gemini-cli-vscode-ide-companion"
+    "bradlc.vscode-tailwindcss"
+    "hashicorp.terraform"
+    "hashicorp.hcl"
+    "fredwangwang.vscode-hcl-format"
   ];
   cursorExtensionCommand =
     "/opt/homebrew/bin/cursor "
+    + builtins.concatStringsSep " " (builtins.map (ext: "--install-extension ${ext}") vscodeExtensions);
+  vscodeExtensionCommand =
+    "/opt/homebrew/bin/code "
     + builtins.concatStringsSep " " (builtins.map (ext: "--install-extension ${ext}") vscodeExtensions);
   secrets = import ../secrets.nix { };
 in
@@ -152,14 +160,16 @@ in
         };
       };
     };
-    # vscode = {
-    #   enable = true;
-    #   # extensions = with pkgs.vscode-extensions; vscodeExtensions;
-    #   profiles.default.userSettings = builtins.fromJSON (builtins.readFile ./cursor/settings.json);
-    # };
     # TODO: add tmux
     # TODO: add vim
   };
+  # VSCode settings
+  home.file."/Users/clay/Library/Application Support/Code/User/settings.json".source =
+    ./dotfiles/cursor/settings.json;
+  # VSCode extensions
+  home.activation.vscodeExtensions = lib.hm.dag.entryAfter [ "writeBoundary" ] (
+    vscodeExtensionCommand
+  );
   # Cursor settings
   home.file."/Users/clay/Library/Application Support/Cursor/User/settings.json".source =
     ./dotfiles/cursor/settings.json;
