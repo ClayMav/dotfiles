@@ -46,7 +46,6 @@
     "/Applications/Notion.app"
     "/Applications/Cursor.app"
     "/Applications/Sleep Aid.app"
-    "/Applications/ChatGPT.app"
     "/Applications/Discord.app"
     {
       spacer = {

@@ -21,7 +21,6 @@
     "/Applications/Notion.app"
     "/Applications/Cursor.app"
     "/Applications/Sleep Aid.app"
-    "/Applications/ChatGPT.app"
     "/System/Applications/Mail.app"
     "/Applications/zoom.us.app"
     "/Applications/Slack.app"
