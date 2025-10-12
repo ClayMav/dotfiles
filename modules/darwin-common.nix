@@ -114,7 +114,7 @@
       "google-chrome" # Backup browser
       # "vlc"
       "chatgpt"
-      #   "zed"
+      "zed"
       "sleep-aid"
       "ghostty"
       "font-codicon"
