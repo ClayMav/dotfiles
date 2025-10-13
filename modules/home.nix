@@ -25,7 +25,6 @@ let
     "bradlc.vscode-tailwindcss"
     "hashicorp.terraform"
     "hashicorp.hcl"
-    "fredwangwang.vscode-hcl-format"
   ];
   cursorExtensionCommand =
     "/opt/homebrew/bin/cursor "
