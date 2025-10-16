@@ -20,7 +20,6 @@
     google-chrome
     jetbrains.datagrip
     inkscape
-    gimp
     ripgrep
     nodePackages.localtunnel
     fzf
@@ -45,6 +44,7 @@
     corepack_22
     fnm
     pipx
+    # github-copilot-cli
     # dotagent
     # gemini-cli # TOO SLOW TO UPDATE
 

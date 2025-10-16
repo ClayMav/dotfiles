@@ -79,7 +79,7 @@
     };
   };
 
-  environment.systemPackages = with pkgs.unstable; [ raycast ];
+  # environment.systemPackages = with pkgs.unstable; [  ];
 
   homebrew = {
     enable = true;
@@ -119,6 +119,8 @@
       "ghostty"
       "font-codicon"
       "visual-studio-code"
+      "gimp"
+      "raycast"
     ];
     masApps = {
       Bitwarden = 1352778147;
