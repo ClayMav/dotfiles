@@ -18,7 +18,7 @@
     "/Applications/Vivaldi.app"
     "/Applications/Notion Calendar.app"
     "/Applications/Notion.app"
-    "/Applications/Cursor.app"
+    "/Applications/Visual Studio Code.app"
     "/Applications/Sleep Aid.app"
     "/System/Applications/Mail.app"
     "/Applications/zoom.us.app"

@@ -11,7 +11,6 @@
     "google-drive"
     "parsec"
     "steam"
-    "todoist-app"
     "crossover"
     "whatsapp"
     "gcs"
@@ -42,7 +41,7 @@
     "/Applications/Vivaldi.app"
     "/Applications/Notion Calendar.app"
     "/Applications/Notion.app"
-    "/Applications/Cursor.app"
+    "/Applications/Visual Studio Code.app"
     "/Applications/Sleep Aid.app"
     "/Applications/Discord.app"
     {
