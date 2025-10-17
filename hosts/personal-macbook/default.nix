@@ -36,8 +36,6 @@
     turso-cli
     rustup
     cargo-binstall
-    # parsec
-    # steam
   ];
 
   system.defaults.dock.persistent-apps = [

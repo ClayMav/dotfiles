@@ -79,8 +79,6 @@
     };
   };
 
-  # environment.systemPackages = with pkgs.unstable; [  ];
-
   homebrew = {
     enable = true;
     onActivation.cleanup = "zap";
@@ -112,7 +110,7 @@
       "vivaldi" # Primary browser
       "yaak"
       "google-chrome" # Backup browser
-      # "vlc"
+      "vlc"
       "chatgpt"
       "zed"
       "sleep-aid"
@@ -121,6 +119,9 @@
       "visual-studio-code"
       "gimp"
       "raycast"
+      "datagrip"
+      "inkscape"
+      "monitorcontrol"
     ];
     masApps = {
       Bitwarden = 1352778147;

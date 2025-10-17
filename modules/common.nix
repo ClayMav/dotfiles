@@ -16,10 +16,6 @@
     bun
     curl
     wget
-    wezterm
-    google-chrome
-    jetbrains.datagrip
-    inkscape
     ripgrep
     nodePackages.localtunnel
     fzf
@@ -33,8 +29,6 @@
     zsh-completions
     zsh-autosuggestions
     zsh-syntax-highlighting
-    vlc-bin
-    monitorcontrol
     tree-sitter
     go
     air
