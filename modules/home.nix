@@ -13,7 +13,6 @@ let
     "mikestead.dotenv"
     "tamasfe.even-better-toml"
     "github.vscode-pull-request-github"
-    "eamodio.gitlens"
     "ms-vscode.makefile-tools"
     "vscodevim.vim"
     "dbaeumer.vscode-eslint"

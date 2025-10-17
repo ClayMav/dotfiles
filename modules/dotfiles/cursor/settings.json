@@ -108,5 +108,7 @@
     "chat.emptyState.history.enabled": true,
     "github.copilot.chat.editor.temporalContext.enabled": true,
     "github.copilot.chat.edits.temporalContext.enabled": true,
-    "chat.agent.maxRequests": 50
+    "chat.agent.maxRequests": 50,
+    "github.experimental.multipleAccounts": true,
+    "workbench.startupEditor": "none"
 }
