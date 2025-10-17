@@ -29,6 +29,7 @@ let
     "unifiedjs.vscode-mdx"
     "yoavbls.pretty-ts-errors"
     "ms-azuretools.vscode-containers"
+    "ms-python.vscode-pylance"
   ];
   cursorExtensions = [
     "anysphere.cursorpyright"

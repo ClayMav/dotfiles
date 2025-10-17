@@ -38,6 +38,7 @@
     corepack_22
     fnm
     pipx
+    cloc
     # github-copilot-cli
     # dotagent
     # gemini-cli # TOO SLOW TO UPDATE
