@@ -6,18 +6,17 @@ let
   vscodeExtensions = [
     "redhat.vscode-yaml"
     "charliermarsh.ruff"
-    "DavidAnson.vscode-markdownlint"
+    "davidanson.vscode-markdownlint"
     "ms-python.python"
     "ms-python.debugpy"
     "ms-python.mypy-type-checker"
     "mikestead.dotenv"
     "tamasfe.even-better-toml"
-    "GitHub.vscode-pull-request-github"
+    "github.vscode-pull-request-github"
     "eamodio.gitlens"
     "ms-vscode.makefile-tools"
     "vscodevim.vim"
     "dbaeumer.vscode-eslint"
-    "YoavBls.pretty-ts-errors"
     "enkia.tokyo-night"
     "ryanluker.vscode-coverage-gutters"
     "ms-azuretools.vscode-docker"
@@ -25,13 +24,51 @@ let
     "bradlc.vscode-tailwindcss"
     "hashicorp.terraform"
     "hashicorp.hcl"
+    "github.vscode-github-actions"
+    "golang.go"
+    "jnoortheen.nix-ide"
+    "unifiedjs.vscode-mdx"
+    "yoavbls.pretty-ts-errors"
+    "ms-azuretools.vscode-containers"
   ];
-  cursorExtensionCommand =
-    "/opt/homebrew/bin/cursor "
-    + builtins.concatStringsSep " " (builtins.map (ext: "--install-extension ${ext}") vscodeExtensions);
-  vscodeExtensionCommand =
-    "/opt/homebrew/bin/code "
-    + builtins.concatStringsSep " " (builtins.map (ext: "--install-extension ${ext}") vscodeExtensions);
+  cursorExtensions = [
+    "anysphere.cursorpyright"
+    "anysphere.pyright"
+  ];
+  # Function to get installed extensions for a given editor
+  getInstalledExtensions = editor: ''
+    ${editor} --list-extensions 2>/dev/null || true
+  '';
+
+  # Function to uninstall extensions not in the desired list
+  uninstallUnwantedExtensions = editor: desiredExtensions: ''
+    INSTALLED_EXTS=$(${editor} --list-extensions 2>/dev/null || true)
+    for ext in $INSTALLED_EXTS; do
+      if ! echo "${builtins.concatStringsSep " " desiredExtensions}" | grep -q "$ext"; then
+        echo "Uninstalling unwanted extension: $ext"
+        ${editor} --uninstall-extension "$ext" || true
+      fi
+    done
+  '';
+
+  # Function to install/update desired extensions with --force
+  installDesiredExtensions = editor: desiredExtensions: ''
+    for ext in ${builtins.concatStringsSep " " desiredExtensions}; do
+      echo "Installing/updating extension: $ext"
+      ${editor} --install-extension "$ext" --force || true
+    done
+  '';
+
+  # Combined extension management commands
+  cursorExtensionCommand = ''
+    ${uninstallUnwantedExtensions "/opt/homebrew/bin/cursor" (vscodeExtensions ++ cursorExtensions)}
+    ${installDesiredExtensions "/opt/homebrew/bin/cursor" (vscodeExtensions ++ cursorExtensions)}
+  '';
+
+  vscodeExtensionCommand = ''
+    ${uninstallUnwantedExtensions "/opt/homebrew/bin/code" vscodeExtensions}
+    ${installDesiredExtensions "/opt/homebrew/bin/code" vscodeExtensions}
+  '';
   secrets = import ../secrets.nix { };
 in
 {
@@ -183,6 +220,4 @@ in
   };
   # Colima config
   home.file."/Users/clay/.colima/_templates/default.yaml".source = ./dotfiles/colima/default.yaml;
-  # TODO: purge unwanted extensions by listing extensions to a list, removing wanted extensions from above, then running uninstall-extension on the rest
-  # TODO: update cursor extensions after uninstall and install steps
 }
