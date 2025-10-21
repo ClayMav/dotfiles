@@ -108,7 +108,21 @@
     "chat.emptyState.history.enabled": true,
     "github.copilot.chat.editor.temporalContext.enabled": true,
     "github.copilot.chat.edits.temporalContext.enabled": true,
-    "chat.agent.maxRequests": 50,
+    "chat.agent.maxRequests": 100,
     "github.experimental.multipleAccounts": true,
-    "workbench.startupEditor": "none"
+    "workbench.startupEditor": "none",
+    "git.blame.editorDecoration.enabled": true,
+    "redhat.telemetry.enabled": false,
+    "github.copilot.chat.agent.thinkingTool": true,
+    "github.copilot.chat.executePrompt.enabled": true,
+    "github.copilot.chat.codesearch.enabled": true,
+    "github.copilot.chat.languageContext.typescript.items": "double",
+    "github.copilot.chat.nesFetcher": "node-fetch",
+    // "chat.tools.global.autoApprove": true
+    "chat.tools.terminal.autoApprove": {
+        "mkdir": true,
+        "uv run pytest": true,
+        "/^git (status|show\\b.*)$/": true,
+        "del": false
+    }
 }
