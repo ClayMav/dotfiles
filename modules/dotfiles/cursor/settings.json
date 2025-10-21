@@ -117,6 +117,7 @@
     "github.copilot.chat.executePrompt.enabled": true,
     "github.copilot.chat.codesearch.enabled": true,
     "github.copilot.chat.languageContext.typescript.items": "double",
+    "github.copilot.chat.completionsFetcher": "node-fetch",
     "github.copilot.chat.nesFetcher": "node-fetch",
     // "chat.tools.global.autoApprove": true
     "chat.tools.terminal.autoApprove": {
