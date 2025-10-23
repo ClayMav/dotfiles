@@ -39,6 +39,7 @@
     fnm
     pipx
     cloc
+    golangci-lint
     # github-copilot-cli
     # dotagent
     # gemini-cli # TOO SLOW TO UPDATE
