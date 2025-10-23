@@ -95,6 +95,7 @@
       "docker"
       "docker-compose"
       "gemini-cli"
+      "goimports"
     ];
     casks = [
       "figma"
