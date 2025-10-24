@@ -123,6 +123,7 @@
       "datagrip"
       "inkscape"
       "monitorcontrol"
+      "codex"
     ];
     masApps = {
       Bitwarden = 1352778147;

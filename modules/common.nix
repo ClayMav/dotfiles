@@ -40,8 +40,8 @@
     pipx
     cloc
     golangci-lint
-    # github-copilot-cli
-    # dotagent
+    # github-copilot-cli # TOO SLOW TO UPDATE
+    # dotagent # DOESN'T EXIST
     # gemini-cli # TOO SLOW TO UPDATE
 
     # Fix nix creating symlinks for applications, create aliases as well

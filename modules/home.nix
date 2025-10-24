@@ -124,8 +124,6 @@ in
     };
     git = {
       enable = true;
-      userName = "Clay McGinnis";
-      userEmail = "github@clay.sh";
 
       ignores = [
         ".DS_Store"
@@ -133,66 +131,73 @@ in
         ".attach_pid*"
       ];
 
-      extraConfig = {
-        core = {
-          excludesfile = "~/.gitignore";
-          autocrlf = "input";
-          fsmonitor = true;
-          untrackedCache = true;
-        };
+      settings = {
 
-        column = {
-          ui = "auto";
+        user = {
+          name = "Clay McGinnis";
+          email = "github@clay.sh";
         };
-        branch = {
-          sort = "-committerdate";
-        };
-        tag = {
-          sort = "version:refname";
-        };
-        init = {
-          defaultBranch = "main";
-        };
-        diff = {
-          algorithm = "histogram";
-          colorMoved = "plain";
-          mnemonicPrefix = true;
-          renames = true;
-        };
-        push = {
-          default = "simple";
-          autoSetupRemote = true;
-          followTags = true;
-        };
-        fetch = {
-          prune = true;
-          pruneTags = true;
-          all = true;
-        };
-        help = {
-          autoCorrect = "prompt";
-        };
-        commit = {
-          verbose = true;
-        };
-        rerere = {
-          enabled = true;
-          autoUpdate = true;
-        };
-        rebase = {
-          autoSquash = true;
-          autoStash = true;
-          updateRefs = true;
-        };
-        merge = {
-          conflictStyle = "zdiff3";
-        };
+        extraConfig = {
+          core = {
+            excludesfile = "~/.gitignore";
+            autocrlf = "input";
+            fsmonitor = true;
+            untrackedCache = true;
+          };
 
-        pull = {
-          rebase = true;
-        };
-        log = {
-          date = "local";
+          column = {
+            ui = "auto";
+          };
+          branch = {
+            sort = "-committerdate";
+          };
+          tag = {
+            sort = "version:refname";
+          };
+          init = {
+            defaultBranch = "main";
+          };
+          diff = {
+            algorithm = "histogram";
+            colorMoved = "plain";
+            mnemonicPrefix = true;
+            renames = true;
+          };
+          push = {
+            default = "simple";
+            autoSetupRemote = true;
+            followTags = true;
+          };
+          fetch = {
+            prune = true;
+            pruneTags = true;
+            all = true;
+          };
+          help = {
+            autoCorrect = "prompt";
+          };
+          commit = {
+            verbose = true;
+          };
+          rerere = {
+            enabled = true;
+            autoUpdate = true;
+          };
+          rebase = {
+            autoSquash = true;
+            autoStash = true;
+            updateRefs = true;
+          };
+          merge = {
+            conflictStyle = "zdiff3";
+          };
+
+          pull = {
+            rebase = true;
+          };
+          log = {
+            date = "local";
+          };
         };
       };
     };

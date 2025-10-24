@@ -35,7 +35,7 @@ if [ -d ~/.aws/sso ] ; then
     aws sts get-caller-identity > /dev/null 2>&1 || aws sso login
 fi
 
-export GITHUB_TOKEN=$(gh auth token)
+# export GITHUB_TOKEN=$(gh auth token)
 
 # Allow go executables to be run (air, etc.)
 export GOPATH=$HOME/go
