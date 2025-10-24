@@ -3,7 +3,7 @@
   ...
 }@inputs:
 let
-  vscodeExtensions = [
+  sharedExtensions = [
     "redhat.vscode-yaml"
     "charliermarsh.ruff"
     "davidanson.vscode-markdownlint"
@@ -29,12 +29,18 @@ let
     "unifiedjs.vscode-mdx"
     "yoavbls.pretty-ts-errors"
     "ms-azuretools.vscode-containers"
-    "ms-python.vscode-pylance"
   ];
+  vscodeExtensions = [
+    "github.copilot-chat"
+    "github.copilot"
+    "ms-python.vscode-pylance"
+  ]
+  ++ sharedExtensions;
   cursorExtensions = [
     "anysphere.cursorpyright"
     "anysphere.pyright"
-  ];
+  ]
+  ++ sharedExtensions;
   # Function to get installed extensions for a given editor
   getInstalledExtensions = editor: ''
     ${editor} --list-extensions 2>/dev/null || true
@@ -61,8 +67,8 @@ let
 
   # Combined extension management commands
   cursorExtensionCommand = ''
-    ${uninstallUnwantedExtensions "/opt/homebrew/bin/cursor" (vscodeExtensions ++ cursorExtensions)}
-    ${installDesiredExtensions "/opt/homebrew/bin/cursor" (vscodeExtensions ++ cursorExtensions)}
+    ${uninstallUnwantedExtensions "/opt/homebrew/bin/cursor" (cursorExtensions)}
+    ${installDesiredExtensions "/opt/homebrew/bin/cursor" (cursorExtensions)}
   '';
 
   vscodeExtensionCommand = ''
