@@ -30,6 +30,10 @@ let
     "yoavbls.pretty-ts-errors"
     "ms-azuretools.vscode-containers"
     "ms-toolsai.jupyter"
+    "ms-toolsai.vscode-jupyter-cell-tags"
+    "ms-toolsai.jupyter-keymap"
+    "ms-toolsai.jupyter-renderers"
+    "ms-toolsai.vscode-jupyter-slideshow"
   ];
   vscodeExtensions = [
     "github.copilot-chat"
@@ -42,40 +46,41 @@ let
     "anysphere.pyright"
   ]
   ++ sharedExtensions;
-  # Function to get installed extensions for a given editor
-  getInstalledExtensions = editor: ''
-    ${editor} --list-extensions 2>/dev/null || true
-  '';
+  # Single-command extension management per editor to minimize CLI invocations
+  manageExtensions =
+    editor: desiredExtensions:
+    let
+      desiredExtensionsList = builtins.concatStringsSep " " desiredExtensions;
+    in
+    ''
+      DESIRED_EXTS="${desiredExtensionsList}"
+      INSTALLED_EXTS=$(${editor} --list-extensions 2>/dev/null || true)
 
-  # Function to uninstall extensions not in the desired list
-  uninstallUnwantedExtensions = editor: desiredExtensions: ''
-    INSTALLED_EXTS=$(${editor} --list-extensions 2>/dev/null || true)
-    for ext in $INSTALLED_EXTS; do
-      if ! echo "${builtins.concatStringsSep " " desiredExtensions}" | grep -q "$ext"; then
-        echo "Uninstalling unwanted extension: $ext"
-        ${editor} --uninstall-extension "$ext" || true
+      UNINSTALL_ARGS=""
+      for ext in $INSTALLED_EXTS; do
+        if ! echo " $DESIRED_EXTS " | grep -Fq " $ext "; then
+          UNINSTALL_ARGS="$UNINSTALL_ARGS --uninstall-extension $ext"
+        fi
+      done
+
+      INSTALL_ARGS=""
+      for ext in $DESIRED_EXTS; do
+        INSTALL_ARGS="$INSTALL_ARGS --install-extension $ext"
+      done
+
+
+      if [ -n "$INSTALL_ARGS$UNINSTALL_ARGS" ]; then
+        echo "Applying extension changes for ${editor}"
+        ${editor} --force $INSTALL_ARGS $UNINSTALL_ARGS || true
+      else
+        echo "No extension changes required for ${editor}"
       fi
-    done
-  '';
-
-  # Function to install/update desired extensions with --force
-  installDesiredExtensions = editor: desiredExtensions: ''
-    for ext in ${builtins.concatStringsSep " " desiredExtensions}; do
-      echo "Installing/updating extension: $ext"
-      ${editor} --install-extension "$ext" --force || true
-    done
-  '';
+    '';
 
   # Combined extension management commands
-  cursorExtensionCommand = ''
-    ${uninstallUnwantedExtensions "/opt/homebrew/bin/cursor" (cursorExtensions)}
-    ${installDesiredExtensions "/opt/homebrew/bin/cursor" (cursorExtensions)}
-  '';
+  cursorExtensionCommand = manageExtensions "/opt/homebrew/bin/cursor" cursorExtensions;
 
-  vscodeExtensionCommand = ''
-    ${uninstallUnwantedExtensions "/opt/homebrew/bin/code" vscodeExtensions}
-    ${installDesiredExtensions "/opt/homebrew/bin/code" vscodeExtensions}
-  '';
+  vscodeExtensionCommand = manageExtensions "/opt/homebrew/bin/code" vscodeExtensions;
   secrets = import ../secrets.nix { };
 in
 {
