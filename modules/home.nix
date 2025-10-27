@@ -29,6 +29,7 @@ let
     "unifiedjs.vscode-mdx"
     "yoavbls.pretty-ts-errors"
     "ms-azuretools.vscode-containers"
+    "ms-toolsai.jupyter"
   ];
   vscodeExtensions = [
     "github.copilot-chat"
