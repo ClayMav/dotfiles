@@ -81,6 +81,8 @@ let
   cursorExtensionCommand = manageExtensions "/opt/homebrew/bin/cursor" cursorExtensions;
 
   vscodeExtensionCommand = manageExtensions "/opt/homebrew/bin/code" vscodeExtensions;
+
+  vscodeInsidersExtensionCommand = manageExtensions "/opt/homebrew/bin/code-insiders" vscodeExtensions;
   secrets = import ../secrets.nix { };
 in
 {
@@ -222,6 +224,9 @@ in
   # VSCode extensions
   home.activation.vscodeExtensions = lib.hm.dag.entryAfter [ "writeBoundary" ] (
     vscodeExtensionCommand
+  );
+  home.activation.vscodeInsidersExtensions = lib.hm.dag.entryAfter [ "writeBoundary" ] (
+    vscodeInsidersExtensionCommand
   );
   # Cursor settings
   home.file."/Users/clay/Library/Application Support/Cursor/User/settings.json".source =
