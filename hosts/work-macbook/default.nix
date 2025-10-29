@@ -14,11 +14,11 @@
     pre-commit
     kubectl
   ];
-  system.defaults.dock.persistent-apps = with pkgs.unstable; [
+  system.defaults.dock.persistent-apps = [
     "/Applications/Vivaldi.app"
     "/Applications/Notion Calendar.app"
     "/Applications/Notion.app"
-    "/Applications/Visual Studio Code.app"
+    "/Applications/Visual Studio Code - Insiders.app"
     "/Applications/Sleep Aid.app"
     "/System/Applications/Mail.app"
     "/Applications/zoom.us.app"

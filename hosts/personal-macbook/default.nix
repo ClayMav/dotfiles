@@ -41,7 +41,7 @@
     "/Applications/Vivaldi.app"
     "/Applications/Notion Calendar.app"
     "/Applications/Notion.app"
-    "/Applications/Visual Studio Code.app"
+    "/Applications/Visual Studio Code - Insiders.app"
     "/Applications/Sleep Aid.app"
     "/Applications/Discord.app"
     {
