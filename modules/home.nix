@@ -226,7 +226,14 @@ in
   };
   # VSCode settings
   home.file."/Users/clay/Library/Application Support/Code/User/settings.json".source =
-    ./dotfiles/cursor/settings.json;
+    ./dotfiles/vscode/settings.json;
+  # home.file."/Users/clay/Library/Application Support/Code/User/mcp.json".source =
+  # ./dotfiles/vscode/mcp.json;
+  # Insiders settings
+  home.file."/Users/clay/Library/Application Support/Code - Insiders/User/settings.json".source =
+    ./dotfiles/vscode/settings.json;
+  # home.file."/Users/clay/Library/Application Support/Code - Insiders/User/mcp.json".source =
+  # ./dotfiles/vscode/mcp.json;
   # VSCode extensions
   home.activation.vscodeExtensions = lib.hm.dag.entryAfter [ "writeBoundary" ] (
     vscodeExtensionCommand
@@ -235,8 +242,8 @@ in
     vscodeInsidersExtensionCommand
   );
   # Cursor settings
-  home.file."/Users/clay/Library/Application Support/Cursor/User/settings.json".source =
-    ./dotfiles/cursor/settings.json;
+  # home.file."/Users/clay/Library/Application Support/Cursor/User/settings.json".source =
+  #   ./dotfiles/cursor/settings.json;
   # Cursor extensions
   # home.activation.cursorExtensions = lib.hm.dag.entryAfter [ "writeBoundary" ] (
   #   cursorExtensionCommand
