@@ -34,6 +34,7 @@ let
     "ms-toolsai.jupyter-keymap"
     "ms-toolsai.jupyter-renderers"
     "ms-toolsai.vscode-jupyter-slideshow"
+    "ms-kubernetes-tools.vscode-kubernetes-tools"
   ];
   vscodeExtensions = [
     "github.copilot-chat"
@@ -41,11 +42,16 @@ let
     "ms-python.vscode-pylance"
   ]
   ++ sharedExtensions;
-  cursorExtensions = [
-    "anysphere.cursorpyright"
-    "anysphere.pyright"
+  vscodeInsidersExtensions = [
+    "github.copilot"
+    "ms-python.vscode-pylance"
   ]
   ++ sharedExtensions;
+  # cursorExtensions = [
+  #   "anysphere.cursorpyright"
+  #   "anysphere.pyright"
+  # ]
+  # ++ sharedExtensions;
   # Single-command extension management per editor to minimize CLI invocations
   manageExtensions =
     editor: desiredExtensions:
@@ -78,11 +84,11 @@ let
     '';
 
   # Combined extension management commands
-  cursorExtensionCommand = manageExtensions "/opt/homebrew/bin/cursor" cursorExtensions;
+  # cursorExtensionCommand = manageExtensions "/opt/homebrew/bin/cursor" cursorExtensions;
 
   vscodeExtensionCommand = manageExtensions "/opt/homebrew/bin/code" vscodeExtensions;
 
-  vscodeInsidersExtensionCommand = manageExtensions "/opt/homebrew/bin/code-insiders" vscodeExtensions;
+  vscodeInsidersExtensionCommand = manageExtensions "/opt/homebrew/bin/code-insiders" vscodeInsidersExtensions;
   secrets = import ../secrets.nix { };
 in
 {
@@ -97,10 +103,10 @@ in
 
   programs = {
     home-manager.enable = true;
-    wezterm = {
-      enable = true;
-      extraConfig = builtins.readFile ./dotfiles/wezterm/wezterm.lua;
-    };
+    # wezterm = {
+    #   enable = true;
+    #   extraConfig = builtins.readFile ./dotfiles/wezterm/wezterm.lua;
+    # };
 
     zsh = {
       enable = true;
@@ -232,14 +238,14 @@ in
   home.file."/Users/clay/Library/Application Support/Cursor/User/settings.json".source =
     ./dotfiles/cursor/settings.json;
   # Cursor extensions
-  home.activation.cursorExtensions = lib.hm.dag.entryAfter [ "writeBoundary" ] (
-    cursorExtensionCommand
-  );
+  # home.activation.cursorExtensions = lib.hm.dag.entryAfter [ "writeBoundary" ] (
+  #   cursorExtensionCommand
+  # );
   # Cursor Rules
-  home.file.".cursor/rules" = {
-    source = ./dotfiles/cursor/rules;
-    recursive = true;
-  };
+  # home.file.".cursor/rules" = {
+  #   source = ./dotfiles/cursor/rules;
+  #   recursive = true;
+  # };
   # Colima config
   home.file."/Users/clay/.colima/_templates/default.yaml".source = ./dotfiles/colima/default.yaml;
 }

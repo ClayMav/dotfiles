@@ -98,32 +98,34 @@
       "goimports"
     ];
     casks = [
-      "figma"
+      # Browsers
+      "vivaldi" # Primary browser
+      "zen"
       "firefox" # Backup browser
-      "spotify"
-      "cursor"
+      "google-chrome" # Backup browser
+      # Other
+      "figma"
       "shottr"
       "logitech-g-hub"
       "notion"
       "notion-calendar"
       "private-internet-access"
       "tailscale-app"
-      "vivaldi" # Primary browser
-      "yaak"
-      "google-chrome" # Backup browser
       "vlc"
       "chatgpt"
-      "zed"
       "sleep-aid"
-      "ghostty"
       "font-codicon"
-      "visual-studio-code"
-      "visual-studio-code@insiders"
       "gimp"
       "raycast"
-      "datagrip"
       "inkscape"
       "monitorcontrol"
+      # Development
+      "ghostty"
+      # "zed"
+      # "cursor"
+      "visual-studio-code"
+      "visual-studio-code@insiders"
+      "datagrip"
       "codex"
     ];
     masApps = {
