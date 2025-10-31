@@ -1,4 +1,4 @@
-{ pkgs, ... }@inputs:
+{ pkgs, commonDockApps, ... }@inputs:
 {
   users.users.clay = {
     home = "/Users/clay";
@@ -14,12 +14,7 @@
     pre-commit
     kubectl
   ];
-  system.defaults.dock.persistent-apps = [
-    "/Applications/Vivaldi.app"
-    "/Applications/Notion Calendar.app"
-    "/Applications/Notion.app"
-    "/Applications/Visual Studio Code - Insiders.app"
-    "/Applications/Sleep Aid.app"
+  system.defaults.dock.persistent-apps = commonDockApps ++ [
     "/System/Applications/Mail.app"
     "/Applications/zoom.us.app"
     "/Applications/Slack.app"

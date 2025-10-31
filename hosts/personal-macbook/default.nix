@@ -1,4 +1,4 @@
-{ pkgs, ... }@inputs:
+{ pkgs, commonDockApps, ... }@inputs:
 {
   system.primaryUser = "clay";
 
@@ -37,12 +37,7 @@
     cargo-binstall
   ];
 
-  system.defaults.dock.persistent-apps = [
-    "/Applications/Vivaldi.app"
-    "/Applications/Notion Calendar.app"
-    "/Applications/Notion.app"
-    "/Applications/Visual Studio Code - Insiders.app"
-    "/Applications/Sleep Aid.app"
+  system.defaults.dock.persistent-apps = commonDockApps ++ [
     "/Applications/Discord.app"
     {
       spacer = {

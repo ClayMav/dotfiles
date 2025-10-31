@@ -5,6 +5,15 @@
   self,
   ...
 }@inputs:
+let
+  commonDockApps = [
+    "/Applications/Zen.app"
+    "/Applications/Notion Calendar.app"
+    "/Applications/Notion.app"
+    "/Applications/Visual Studio Code - Insiders.app"
+    "/Applications/Sleep Aid.app"
+  ];
+in
 {
   system.primaryUser = "clay";
   nix-homebrew = {
@@ -132,4 +141,7 @@
       Bitwarden = 1352778147;
     };
   };
+
+  # Export commonDockApps for use in host configurations
+  _module.args.commonDockApps = commonDockApps;
 }
