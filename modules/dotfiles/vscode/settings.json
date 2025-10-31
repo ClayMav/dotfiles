@@ -125,5 +125,6 @@
         "uv run pytest": true,
         "/^git (status|show\\b.*)$/": true,
         "del": false
-    }
+    },
+    "scm.repositories.selectionMode": "multiple"
 }
