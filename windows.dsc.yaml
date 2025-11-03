@@ -1,0 +1,523 @@
+#
+# Run with: winget configure -f C:\Users\YourUser\dotfiles\windows.dsc.yaml
+#
+properties:
+  configurationVersion: 0.2.0
+  resources:
+    # Goal 1: Install WinGet Packages (Desktop Apps)
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: Install-Vivaldi
+      directives:
+        description: Install Vivaldi
+      settings:
+        id: Vivaldi.Vivaldi
+        source: winget
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: Install-Zen
+      directives:
+        description: Install Zen
+      settings:
+        id: Zen-Team.Zen-Browser
+        source: winget
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: Install-Firefox
+      directives:
+        description: Install Firefox
+      settings:
+        id: Mozilla.Firefox
+        source: winget
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: Install-Chrome
+      directives:
+        description: Install Chrome
+      settings:
+        id: Google.Chrome
+        source: winget
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: Install-Figma
+      directives:
+        description: Install Figma
+      settings:
+        id: Figma.Figma
+        source: winget
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: Install-Logitech-G-Hub
+      directives:
+        description: Install Logitech G Hub
+      settings:
+        id: Logitech.GHUB
+        source: winget
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: Install-Notion
+      directives:
+        description: Install Notion
+      settings:
+        id: Notion.Notion
+        source: winget
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: Install-Notion-Calendar
+      directives:
+        description: Install Notion Calendar
+      settings:
+        id: Notion.NotionCalendar
+        source: winget
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: Install-Private-Internet-Access
+      directives:
+        description: Install Private Internet Access
+      settings:
+        id: PrivateInternetAccess.PrivateInternetAccess
+        source: winget
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: Install-Tailscale
+      directives:
+        description: Install Tailscale
+      settings:
+        id: Tailscale.Tailscale
+        source: winget
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: Install-VLC
+      directives:
+        description: Install VLC
+      settings:
+        id: VideoLAN.VLC
+        source: winget
+    # - resource: Microsoft.WinGet.DSC/WinGetPackage
+    #   id: Install-ChatGPT
+    #   directives:
+    #     description: Install ChatGPT
+    #   settings:
+    #     id: OpenAI.ChatGPT
+    #     source: winget
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: Install-Gimp
+      directives:
+        description: Install Gimp
+      settings:
+        id: GIMP.GIMP.3
+        source: winget
+    # Raycast is currently unavailable on Windows via winget; keep disabled to avoid failed runs.
+    # - resource: Microsoft.WinGet.DSC/WinGetPackage
+    #   id: Install-Raycast
+    #   directives:
+    #     description: Install Raycast
+    #   settings:
+    #     id: Raycast.Raycast
+    #     source: winget
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: Install-Inkscape
+      directives:
+        description: Install Inkscape
+      settings:
+        id: Inkscape.Inkscape
+        source: winget
+    # - resource: Microsoft.WinGet.DSC/WinGetPackage
+    #   id: Install-Ghostty
+    #   directives:
+    #     description: Install Ghostty
+    #   settings:
+    #     id: Ghostty.Ghostty
+    #     source: winget
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: Install-Visual-Studio-Code
+      directives:
+        description: Install Visual Studio Code
+      settings:
+        id: Microsoft.VisualStudioCode
+        source: winget
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: Install-Visual-Studio-Code-Insiders
+      directives:
+        description: Install Visual Studio Code Insiders
+      settings:
+        id: Microsoft.VisualStudioCode.Insiders
+        source: winget
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: Install-Bitwarden
+      directives:
+        description: Install Bitwarden
+      settings:
+        id: Bitwarden.Bitwarden
+        source: winget
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: Install-Amazon-Games
+      directives:
+        description: Install Amazon Games
+      settings:
+        id: Amazon.Games
+        source: winget
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: Install-Google-Drive
+      directives:
+        description: Install Google Drive
+      settings:
+        id: Google.GoogleDrive
+        source: winget
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: Install-PlayStation-Remote-Play
+      directives:
+        description: Install PlayStation Remote Play
+      settings:
+        id: PlayStation.PSRemotePlay
+        source: winget
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: Install-Ubisoft-Connect
+      directives:
+        description: Install Ubisoft Connect
+      settings:
+        id: Ubisoft.Connect
+        source: winget
+    # - resource: Microsoft.WinGet.DSC/WinGetPackage
+    #   id: Install-Battlenet
+    #   directives:
+    #     description: Install Battlenet
+    #     securityContext: elevated
+    #   settings:
+    #     id: Blizzard.BattleNet
+    #     source: winget
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: Install-ElectronicArts-EADesktop
+      directives:
+        description: Install ElectronicArts EADesktop
+      settings:
+        id: ElectronicArts.EADesktop
+        source: winget
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: Install-Valve-Steam
+      directives:
+        description: Install Valve Steam
+      settings:
+        id: Valve.Steam
+        source: winget
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: Install-AntibodySoftware-WizTree
+      directives:
+        description: Install AntibodySoftware WizTree
+      settings:
+        id: AntibodySoftware.WizTree
+        source: winget
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: Install-Discord
+      directives:
+        description: Install Discord
+      settings:
+        id: Discord.Discord
+        source: winget
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: Install-Spotify
+      directives:
+        description: Install Spotify
+      settings:
+        id: Spotify.Spotify
+        source: winget
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: Install-Playnite
+      directives:
+        description: Install Playnite
+      settings:
+        id: Playnite.Playnite
+        source: winget
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: Install-EpicGames-EpicGamesLauncher
+      directives:
+        description: Install EpicGames EpicGamesLauncher
+      settings:
+        id: EpicGames.EpicGamesLauncher
+        source: winget
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: Install-GOG-Galaxy
+      directives:
+        description: Install GOG Galaxy
+      settings:
+        id: GOG.Galaxy
+        source: winget
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: Install-Parsec
+      directives:
+        description: Install Parsec
+      settings:
+        id: Parsec.Parsec
+        source: winget
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: Install-AutoHotkey
+      directives:
+        description: Install AutoHotkey
+      settings:
+        id: AutoHotkey.AutoHotkey
+        source: winget
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: Install-7zip
+      directives:
+        description: Install 7zip
+      settings:
+        id: 7zip.7zip
+        source: winget
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: Install-Windows-Terminal
+      directives:
+        description: Install Windows Terminal
+      settings:
+        id: Microsoft.WindowsTerminal
+        source: winget
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: Install-IrfanView
+      directives:
+        description: Install IrfanView
+      settings:
+        id: IrfanSkiljan.IrfanView
+        source: winget
+    # - resource: Microsoft.WinGet.DSC/WinGetPackage
+    #   id: Install-Whatsapp
+    #   directives:
+    #     description: Install Whatsapp
+    #   settings:
+    #     id: Whatsapp.Whatsapp
+    #     source: winget
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: Install-Garmin-Express
+      directives:
+        description: Install Garmin Express
+      settings:
+        id: Garmin.Express
+        source: winget
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: Install-CloudImperiumGames-RSILauncher
+      directives:
+        description: Install CloudImperium Games RSILauncher
+      settings:
+        id: CloudImperiumGames.RSILauncher
+        source: winget
+    # - resource: Microsoft.WinGet.DSC/WinGetPackage
+    #   id: Install-Nvidia-Broadcast
+    #   directives:
+    #     description: Install Nvidia Broadcast
+    #   settings:
+    #     id: Nvidia.Broadcast
+    #     source: winget
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: Install-VirtualDesktop-Streamer
+      directives:
+        description: Install Virtual Desktop Streamer
+      settings:
+        id: VirtualDesktop.Streamer
+        source: winget
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: Install-MakeMKV
+      directives:
+        description: Install MakeMKV
+      settings:
+        id: GuinpinSoft.MakeMKV
+        source: winget
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: Install-Elgato-4KCaptureUtility
+      directives:
+        description: Install Elgato 4K Capture Utility
+      settings:
+        id: Elgato.4KCaptureUtility
+        source: winget
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: Install-LizardByte-Sunshine
+      directives:
+        description: Install LizardByte Sunshine
+      settings:
+        id: LizardByte.Sunshine
+        source: winget
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: Install-r2modman
+      directives:
+        description: Install r2modman
+      settings:
+        id: ebkr.r2modman
+        source: winget
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: Install-Python-3.10
+      directives:
+        description: Install Python 3.10
+      settings:
+        id: Python.Python.3.10
+        source: winget
+    - resource: Microsoft.WinGet.DSC/WinGetPackage
+      id: Install-PowerToys
+      directives:
+        description: Install Microsoft PowerToys
+      settings:
+        id: Microsoft.PowerToys
+        source: winget
+    # Goal 3: Copy Dotfiles (VSCode Settings)
+    - resource: Script
+      id: Copy-VSCode-Settings
+      directives:
+        description: Copy VSCode settings.json
+      settings:
+        GetScript: |
+          return @{ Result = "NotApplicable" }
+        TestScript: |
+          $configurationRoot = '${WinGetConfigRoot}'
+          if ([string]::IsNullOrWhiteSpace($configurationRoot) -or $configurationRoot -eq '${WinGetConfigRoot}') {
+              $configurationRoot = 'C:\Users\mcgin\git-local\dotfiles'
+          }
+
+          $appData = [Environment]::GetFolderPath('ApplicationData')
+          if ([string]::IsNullOrWhiteSpace($appData)) {
+              throw "Unable to resolve ApplicationData folder."
+          }
+
+          $source = [IO.Path]::Combine($configurationRoot, 'modules', 'dotfiles', 'vscode', 'settings.json')
+          $destination = [IO.Path]::Combine($appData, 'Code', 'User', 'settings.json')
+
+          if (-not (Test-Path -LiteralPath $source)) {
+              throw "Source file missing: $source"
+          }
+
+          if (-not (Test-Path -LiteralPath $destination)) {
+              return $false
+          }
+
+          $sourceHash = (Get-FileHash -LiteralPath $source -Algorithm SHA256).Hash
+          $destinationHash = (Get-FileHash -LiteralPath $destination -Algorithm SHA256).Hash
+          return ($sourceHash -eq $destinationHash)
+        SetScript: |
+          $configurationRoot = '${WinGetConfigRoot}'
+          if ([string]::IsNullOrWhiteSpace($configurationRoot) -or $configurationRoot -eq '${WinGetConfigRoot}') {
+              $configurationRoot = 'C:\Users\mcgin\git-local\dotfiles'
+          }
+
+          $appData = [Environment]::GetFolderPath('ApplicationData')
+          if ([string]::IsNullOrWhiteSpace($appData)) {
+              throw "Unable to resolve ApplicationData folder."
+          }
+
+          $source = [IO.Path]::Combine($configurationRoot, 'modules', 'dotfiles', 'vscode', 'settings.json')
+          $destination = [IO.Path]::Combine($appData, 'Code', 'User', 'settings.json')
+          $destinationDir = [IO.Path]::GetDirectoryName($destination)
+
+          if (-not (Test-Path -LiteralPath $destinationDir)) {
+              New-Item -ItemType Directory -Path $destinationDir -Force | Out-Null
+          }
+
+          Copy-Item -LiteralPath $source -Destination $destination -Force
+    - resource: Script
+      id: Copy-VSCode-Insiders-Settings
+      directives:
+        description: Copy VSCode Insiders settings.json
+      settings:
+        GetScript: |
+          return @{ Result = "NotApplicable" }
+        TestScript: |
+          $configurationRoot = '${WinGetConfigRoot}'
+          if ([string]::IsNullOrWhiteSpace($configurationRoot) -or $configurationRoot -eq '${WinGetConfigRoot}') {
+              $configurationRoot = 'C:\Users\mcgin\git-local\dotfiles'
+          }
+
+          $appData = [Environment]::GetFolderPath('ApplicationData')
+          if ([string]::IsNullOrWhiteSpace($appData)) {
+              throw "Unable to resolve ApplicationData folder."
+          }
+
+          $source = [IO.Path]::Combine($configurationRoot, 'modules', 'dotfiles', 'vscode', 'settings.json')
+          $destination = [IO.Path]::Combine($appData, 'Code - Insiders', 'User', 'settings.json')
+
+          if (-not (Test-Path -LiteralPath $source)) {
+              throw "Source file missing: $source"
+          }
+
+          if (-not (Test-Path -LiteralPath $destination)) {
+              return $false
+          }
+
+          $sourceHash = (Get-FileHash -LiteralPath $source -Algorithm SHA256).Hash
+          $destinationHash = (Get-FileHash -LiteralPath $destination -Algorithm SHA256).Hash
+          return ($sourceHash -eq $destinationHash)
+        SetScript: |
+          $configurationRoot = '${WinGetConfigRoot}'
+          if ([string]::IsNullOrWhiteSpace($configurationRoot) -or $configurationRoot -eq '${WinGetConfigRoot}') {
+              $configurationRoot = 'C:\Users\mcgin\git-local\dotfiles'
+          }
+
+          $appData = [Environment]::GetFolderPath('ApplicationData')
+          if ([string]::IsNullOrWhiteSpace($appData)) {
+              throw "Unable to resolve ApplicationData folder."
+          }
+
+          $source = [IO.Path]::Combine($configurationRoot, 'modules', 'dotfiles', 'vscode', 'settings.json')
+          $destination = [IO.Path]::Combine($appData, 'Code - Insiders', 'User', 'settings.json')
+          $destinationDir = [IO.Path]::GetDirectoryName($destination)
+
+          if (-not (Test-Path -LiteralPath $destinationDir)) {
+              New-Item -ItemType Directory -Path $destinationDir -Force | Out-Null
+          }
+
+          Copy-Item -LiteralPath $source -Destination $destination -Force
+
+    # Goal 4: VSCode Extension "Zap"
+    # This runs our custom, powerful PowerShell script.
+    - resource: Script
+      id: Sync-VSCode-Extensions
+      directives:
+        description: "Declaratively sync VSCode extensions (Install & Zap)"
+      settings:
+        GetScript: |
+          # For a Test/Set-only script, we return a placeholder.
+          return @{ Result = "NotApplicable" }
+        TestScript: |
+          & '${WinGetConfigRoot}\windows-scripts\Sync-VSCodeExtensions.ps1' -TestOnly
+        SetScript: |
+          & '${WinGetConfigRoot}\windows-scripts\Sync-VSCodeExtensions.ps1'
+
+    # Goal 5: Manage Taskbar Pins (The "Hard Mode" Goal)
+    # This is the most complex and brittle part, as Microsoft actively
+    # discourages scripting it. This COM object method is the most
+    # reliable "hack" that exists.
+    - resource: Script
+      id: Set-Taskbar-Pins
+      directives:
+        description: "Sets the taskbar pins (unpins all first)"
+      settings:
+        GetScript: |
+          return @{ Result = "NotApplicable" }
+        TestScript: |
+          $desiredPins = @(
+            'Zen'
+            'Notion Calendar'
+            'Notion'
+            'Visual Studio Code - Insiders'
+            'Discord'
+          )
+          & '${WinGetConfigRoot}\windows-scripts\Sync-TaskbarPins.ps1' -DesiredPins $desiredPins -TestOnly
+        SetScript: |
+          $desiredPins = @(
+            'Zen'
+            'Notion Calendar'
+            'Notion'
+            'Visual Studio Code - Insiders'
+            'Discord'
+          )
+          & '${WinGetConfigRoot}\windows-scripts\Sync-TaskbarPins.ps1' -DesiredPins $desiredPins
+
+    # Goal 6: Update All Existing WinGet Packages
+    - resource: Script
+      id: Update-All-WinGet-Packages
+      directives:
+        description: "Find and install all available WinGet package updates."
+      settings:
+        GetScript: |
+          return @{ Result = "NotApplicable" }
+        TestScript: |
+          Write-Output "Checking for WinGet updates..."
+          # Run 'winget upgrade' and see if it finds anything
+          $updates = winget upgrade --accept-source-agreements
+
+          # If the output is null or contains this specific string, no updates are available.
+          if ($null -eq $updates -or $updates -like "*No applicable update found*") {
+              Write-Output "No updates found. System is up to date."
+              return $true # State is correct (no updates needed)
+          }
+
+          # If we get here, 'winget upgrade' listed packages.
+          Write-Output "Updates are available."
+          return $false # State is not correct (updates are pending)
+
+        SetScript: |
+          Write-Output "Installing all available WinGet package updates..."
+          # The --include-unknown flag is important to update apps not installed by winget
+          winget upgrade --all --accept-package-agreements --accept-source-agreements --include-unknown
