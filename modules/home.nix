@@ -255,4 +255,7 @@ in
   # };
   # Colima config
   home.file."/Users/clay/.colima/_templates/default.yaml".source = ./dotfiles/colima/default.yaml;
+  # Ghostty config
+  home.file."/Users/clay/Library/Application Support/com.mitchellh.ghostty/config".source =
+    ./dotfiles/ghostty/config;
 }
