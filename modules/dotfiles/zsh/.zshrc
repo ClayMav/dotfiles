@@ -32,7 +32,7 @@ fi
 
 # If there is an sso directory in ~/.aws, then we need to login
 if [ -d ~/.aws/sso ] ; then
-    aws sts get-caller-identity > /dev/null 2>&1 || aws sso login
+    aws sts get-caller-identity --profile staging > /dev/null 2>&1 || aws sso login --profile staging
 fi
 
 # export GITHUB_TOKEN=$(gh auth token)
