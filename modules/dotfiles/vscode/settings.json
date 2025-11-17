@@ -126,5 +126,6 @@
         "/^git (status|show\\b.*)$/": true,
         "del": false
     },
-    "scm.repositories.selectionMode": "multiple"
+    "scm.repositories.selectionMode": "multiple",
+    "terminal.integrated.suggest.enabled": false
 }
