@@ -125,7 +125,7 @@ in
 
       shellAliases = {
         vim = "nvim";
-        pr = "gh pr create --editor";
+        pr = "gh pr create --draft --editor";
       };
 
       history = {
