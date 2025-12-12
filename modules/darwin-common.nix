@@ -108,9 +108,9 @@ in
     ];
     casks = [
       # Browsers
-      "vivaldi" # Primary browser
+      # "vivaldi" # Primary browser
       "zen"
-      "firefox" # Backup browser
+      # "firefox" # Backup browser
       "google-chrome" # Backup browser
       # Other
       "figma"
@@ -135,7 +135,8 @@ in
       "visual-studio-code"
       "visual-studio-code@insiders"
       "datagrip"
-      "codex"
+      # "codex"
+      "copilot-cli"
     ];
     masApps = {
       Bitwarden = 1352778147;
