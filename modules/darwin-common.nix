@@ -105,6 +105,7 @@ in
       "docker-compose"
       "gemini-cli"
       "goimports"
+      "mcp-grafana"
     ];
     casks = [
       # Browsers
@@ -128,6 +129,7 @@ in
       "raycast"
       "inkscape"
       "monitorcontrol"
+      "handy"
       # Development
       "ghostty"
       # "zed"
