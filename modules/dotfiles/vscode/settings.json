@@ -121,11 +121,47 @@
     "github.copilot.chat.nesFetcher": "node-fetch",
     // "chat.tools.global.autoApprove": true
     "chat.tools.terminal.autoApprove": {
-        "mkdir": true,
-        "uv run pytest": true,
-        "/^git (status|show\\b.*)$/": true,
-        "del": false
+        // --- 1. PYTHON & UV ECOSYSTEM ---
+        // Allow all uv commands (sync, add, remove, run, venv, pip)
+        "/^uv\\b/": true,
+        "/^pre-commit\\b/": true,
+        // --- 1.1 BUN & NEXT.JS ECOSYSTEM ---
+        // Allow bun commands (install, add, remove, run)
+        "/^bun\\b/": true,
+        // --- 2. STANDARD FILE OPERATIONS (The "Nag Reduction" Layer) ---
+        // Safe to run without asking: listing, reading, creating, moving
+        "/^ls\\b/": true,
+        "/^cat\\b/": true,
+        "/^mkdir\\b/": true,
+        "/^touch\\b/": true,
+        "/^cp\\b/": true,
+        "/^mv\\b/": true,
+        "/^pwd\\b/": true,
+        "/^echo\\b/": true,
+        "/^head\\b/": true,
+        "/^tail\\b/": true,
+        // --- 3. GIT OPERATIONS ---
+        // Read-only git is always safe
+        "/^git (status|diff|log|show|branch|checkout|switch|fetch|pull)\\b/": true,
+        // "Add" and "Commit" are usually safe to auto-approve because they are local and reversible
+        "/^git (add|commit)\\b/": true,
+        // NOTE: 'git push' is intentionally NOT included (safer to manual approve pushes)
+        // --- 4. SEARCH & UTILITIES ---
+        "/^grep\\b/": true,
+        "/^find\\b/": true,
+        "/^whoami\\b/": true,
+        "/^which\\b/": true,
+        "/^tree\\b/": true,
+        // --- 5. SAFETY GUARDRAILS (Explicit Blocks) ---
+        // Dangerous commands that should ALWAYS require manual approval
+        "/^rm\\b/": false, // Never auto-delete files
+        "/^sudo\\b/": false, // Never auto-escalate privileges
+        "/^ssh\\b/": false, // Never auto-connect to remote servers
+        "/^curl\\b/": false, // Avoid auto-downloading scripts (unless via uv/pip)
+        "/^wget\\b/": false
     },
     "scm.repositories.selectionMode": "multiple",
-    "terminal.integrated.suggest.enabled": false
+    "terminal.integrated.suggest.enabled": false,
+    "git.replaceTagsWhenPull": true,
+    "python.defaultInterpreterPath": "/usr/bin/python3"
 }
